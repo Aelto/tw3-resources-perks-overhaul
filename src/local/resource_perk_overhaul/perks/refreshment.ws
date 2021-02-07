@@ -12,7 +12,6 @@ function RPO_consumingStaminaRestoresHealth(manager: W3AbilityManager, stamina_c
       * thePlayer.GetHealth()
       * 0.05
       * RPO_getSkillLevel(S_Alchemy_s02)
-      * current_stamina
     );
   }
 }

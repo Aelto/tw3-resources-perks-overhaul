@@ -30,5 +30,5 @@ function RPO_getResourceConsumptionDefensiveActionsModifier(): float {
   // by default, when full life the costs remain unchanged
   // and as life goes down for each % of life lost the costs increase by 0.5% 
   // divided by the skill level.
-  return 2 - thePlayer.GetHealthPercents() * 0.5 / level
+  return 2 - thePlayer.GetHealthPercents() * 0.5 / level;
 }

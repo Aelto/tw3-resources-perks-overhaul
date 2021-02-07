@@ -6,7 +6,7 @@ function RPO_lightattackEntryPoint(player: CR4Player): bool {
   stamina_cost = (30 / RPO_getArmorWeight() + 2)
               * RPO_getAdrenalineIncreaseStaminaCostModifier()
               * RPO_refreshmentIncreasesAllStaminaCostModifier()
-              * RPO_getResourceConsumptionAggressiveActionsModifier
+              * RPO_getResourceConsumptionAggressiveActionsModifier()
               * RPO_getOverallResourceConsumptionWithToxicityModifier();
 
   fixative_level = RPO_getSkillLevel(S_Alchemy_s06);
