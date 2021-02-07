@@ -1,0 +1,18 @@
+// the function restores some health to the player
+function RPO_consumingStaminaRestoresHealth(manager: W3AbilityManager, stamina_cost: float) {
+  if (!((W3PlayerAbilityManager)manager) && manager.owner != GetWitcherPlayer()) {
+    return;
+  }
+
+  // restores health only if adrenaline is full
+  if (thePlayer.GetStat(BCS_Focus) >= 1) {
+    thePlayer.GainStat(
+      BCS_Vitality,
+      stamina_cost
+      * thePlayer.GetHealth()
+      * 0.05
+      * RPO_getSkillLevel(S_Alchemy_s02)
+      * current_stamina
+    );
+  }
+}

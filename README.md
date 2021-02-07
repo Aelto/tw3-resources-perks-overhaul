@@ -8,8 +8,8 @@ A few perks also gain new passives, for example:
 
 DPS tree:
 - Fleet footed also adds: dodges now consume adrenaline instead of stamina, missing stamina increases damage received.
-- Strength training and Muscle Memory (light & heavy attack damage) add: adrenaline now increase damage received. Heavy attacks consume adrenaline.
-- Undying adds: Gaining adrenaline heals based on the stamina you currently have. Higher stamina means more healing. Adrenaline increases damage received.
+- Strength training and Muscle Memory (light & heavy attack damage) add: adrenaline now increases the stamina cost of attacks. Heavy attacks consume adrenaline.
+- Undying adds: Gaining adrenaline heals based on the stamina you currently have. Higher stamina means more healing. Adrenaline increases the stamina cost of attacks
 
 Sign tree:
 - Igni intensity adds: when reaching 100% stamina, gain a burst of adrenaline
@@ -21,4 +21,4 @@ Alchemy tree:
 - Refreshment: When at maximum adrenaline, consuming stamina restores health. The lower the stamina the higher the heal. Also increases all stamina cost by 50%
 - Fixative: Fast attacks now use adrenaline instead of stamina. 
 - Endure pain: As life goes down, resources consumption for aggressive actions is 50% more efficient but 50% less efficient for defensive actions.
-- Fast metabolism (toxicity drops faster): toxicity improves resource overall resource consumption by 0.02% per toxicity point. (60% at 300 toxicity)
+- Fast metabolism (toxicity drops faster): toxicity improves overall resource consumption by 0.02% per toxicity point. (60% at 300 toxicity)
