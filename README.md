@@ -13,7 +13,7 @@ DPS tree:
 
 Sign tree:
 - [x] Igni intensity adds: when reaching 100% stamina, gain a burst of adrenaline
-- Aard Sweep (aard alt) adds: casting a sign with exactly 2 adrenaline and not more consumes all adrenaline but restores stamina. 0.2 adrenaline point per perk level (maximum 3).
+- ~~Aard Sweep (aard alt) adds: casting a sign with exactly 2 adrenaline and not more consumes all adrenaline but restores stamina. 0.2 adrenaline point per perk level (maximum 3).~~ i don't think it would be fun, so it's not implemented.
 - [x] Yrden intensity perk (3rd row): When hit, if it's the first time you've been in the previous 5 seconds window, gain stamina 0.2 adrenaline point per perk level (maximum 3) and decreased cooldown by 1 second per perk level (maximum 3).
 - [x] Active Shield (quen alt) adds: While Quen is active resources regeneration and consumption are removed (except for signs) and heavy attacks deal more damage while light attacks deal less damage. -50% damage to light attacks and +20% to 50% at Active Shield level 3. Attacking while Quen is up reduces the shield's health by 40% to 12% at Active Shield level 3.
 
