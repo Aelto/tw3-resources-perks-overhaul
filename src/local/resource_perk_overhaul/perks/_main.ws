@@ -32,7 +32,10 @@ function RPO_statGainManager(manager: W3AbilityManager, stat : EBaseCharacterSta
                           ////////////////////////
 
 function RPO_getSignCostModifier(): float {
-  return 0.5;
+  return 0.5
+       * RPO_refreshmentIncreasesAllStaminaCostModifier()
+       * RPO_getResourceConsumptionAggressiveActionsModifier()
+       * RPO_getOverallResourceConsumptionWithToxicityModifier();
 }
 
 function RPO_staminaCostManager(action : EStaminaActionType, isPerSec : bool, out cost : SAbilityAttributeValue, out delay : SAbilityAttributeValue, optional abilityName : name) {
@@ -46,9 +49,11 @@ function RPO_staminaCostManager(action : EStaminaActionType, isPerSec : bool, ou
 // the function reduce the skill cost modifier to 50% when it's a sign
 function RPO_getSkillStaminaCostModifier(skill: ESkill): float {
   if (IsSkillSign(skill)) {
-    return 0.5;
+    return 0.5 * RPO_getSignCostModifier();
   }
 
-  return 1;
+  return 1
+       * RPO_refreshmentIncreasesAllStaminaCostModifier()
+       * RPO_getOverallResourceConsumptionWithToxicityModifier();
 }
 

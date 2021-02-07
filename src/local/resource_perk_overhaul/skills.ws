@@ -25,6 +25,7 @@
 // Tissue Transmutation (S_Alchemy_s13)
 // Acquired Tolerance (S_Alchemy_s18)
 // Endure Pain (S_Alchemy_s20)
+// Fast Metabolism (S_Alchemy_s15)
 
 function RPO_requireSkillEquipped(): bool {
   // TODO: use the mod menu value instead

@@ -33,6 +33,9 @@ function RPO_damageModifier(out action: W3DamageAction, playerAttacker: CR4Playe
 // level. The lower the stamina, the lower the damage.
 function RPO_updateAttackDamageBasedOnCurrentStamina(playerAttacker: CR4Player, attackAction: W3Action_Attack): float {
   var current_stamina: float;
+  var fixative_level: int;
+
+  fixative_level = RPO_getSkillLevel(S_Alchemy_s06);
 
   if (playerAttacker && attackAction
   // we don't want to update the rend damage with the current stamina because
@@ -41,6 +44,21 @@ function RPO_updateAttackDamageBasedOnCurrentStamina(playerAttacker: CR4Player, 
   // we only change the damage for heavy and light attacks, not signs.
   && playerAttacker.IsHeavyAttack(attackAction.GetAttackName())
   || playerAttacker.IsLightAttack(attackAction.GetAttackName())) {
+
+    // the fixative trait has a new effect, fast attacks no longer consume stamina
+    // but consume adrenaline instead. And their damage scales on the adrenaline
+    // levels.
+    if (fixative_level > 0
+    && playerAttacker.IsLightAttack(attackAction.GetAttackName())) {
+      // NOTE:
+      // we use the stamina variable but it's adrenaline instead.
+      // Adrenaline ranges from 0 to 3 so it means fast attacks deal thrice the
+      // damage they normally do when the player is at full adrenaline.
+      // It is intended because adrenaline is harder to regenerate than stamina.
+      current_stamina = thePlayer.GetStat(BCS_Focus);
+
+      return current_stamina;
+    }
 
     // it is a value going from 0 to 1
     current_stamina = thePlayer.GetStatPercents(BCS_Stamina);
