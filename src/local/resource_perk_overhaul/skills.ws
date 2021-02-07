@@ -17,6 +17,7 @@
 // Aard Intensity (S_Magic_s12)
 // Delusion (S_Magic_s17)
 // Far-Reaching Aard (S_Magic_s20)
+// Yrden Intensity (S_Magic_s16)
 
 // green tree:
 // Refreshment (S_Alchemy_s02)

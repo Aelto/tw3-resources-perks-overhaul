@@ -93,3 +93,29 @@ function RPO_adrenalineDamageInputModifier(): float {
        * RPO_getAdrenalineDamageIncreaseLevel()
        * 0.01;
 }
+
+function RPO_damageReceivedManager() {
+  var props: ResourcePerkOverhaulProperties;
+  var timestamp: float;
+  var yrden_intensity_level: int;
+
+  props = RPO_getProperties();
+  timestamp = theGame.GetEngineTimeAsSeconds();
+
+  yrden_intensity_level = RPO_getSkillLevel(S_Magic_s16);
+
+  if (props.last_hit_timestamp + (5 - yrden_intensity_level) < timestamp
+  && yrden_intensity_level > 0) {
+
+    RPODEBUG("adrenaline gain: " + yrden_intensity_level // quen active shield
+      * 0.5);
+
+    thePlayer.GainStat(
+      BCS_Focus,
+      yrden_intensity_level // quen active shield
+      * 0.2
+    );
+  }
+
+  props.last_hit_timestamp = timestamp;
+}
