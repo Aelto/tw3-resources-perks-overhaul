@@ -8,7 +8,8 @@ function RPO_heavyattackEntryPoint(player: CR4Player): bool {
                * RPO_getAdrenalineIncreaseStaminaCostModifier()
                * RPO_refreshmentIncreasesAllStaminaCostModifier()
                * RPO_getResourceConsumptionAggressiveActionsModifier()
-               * RPO_getOverallResourceConsumptionWithToxicityModifier();
+               * RPO_getOverallResourceConsumptionWithToxicityModifier()
+               * RPO_getOverallResourceConsumptionWithQuenModifier();
 
   heavy_attack_consume_adrenaline_level = RPO_getSkillLevel(S_Sword_s04);
 

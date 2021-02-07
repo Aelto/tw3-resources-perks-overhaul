@@ -11,7 +11,16 @@ function RPO_getAdrenalineDamageIncreaseLevel(): int {
                           // GENERAL STATS CODE //
                           ////////////////////////
 
-// this code happens whenever Gerealt gains a stat
+function RPO_statGainModifier(manager: W3AbilityManager, stat : EBaseCharacterStats, amount : float, current_stat: float, max_stat: float): float {
+  if (stat != BCS_Vitality) {
+    return RPO_getOverallResourceRegenerationWithQuenModifier();
+  }
+
+  return 1;
+}
+
+// this code happens whenever Gerealt gains a stat, but after the stat has been
+// changed.
 function RPO_statGainManager(manager: W3AbilityManager, stat : EBaseCharacterStats, amount : float, current_stat: float, max_stat: float) {
   if (!((W3PlayerAbilityManager)manager) && manager.owner != GetWitcherPlayer()) {
     return;
@@ -35,7 +44,8 @@ function RPO_getSignCostModifier(): float {
   return 0.5
        * RPO_refreshmentIncreasesAllStaminaCostModifier()
        * RPO_getResourceConsumptionAggressiveActionsModifier()
-       * RPO_getOverallResourceConsumptionWithToxicityModifier();
+       * RPO_getOverallResourceConsumptionWithToxicityModifier()
+       * RPO_getOverallResourceConsumptionWithQuenModifier();
 }
 
 function RPO_staminaCostManager(action : EStaminaActionType, isPerSec : bool, out cost : SAbilityAttributeValue, out delay : SAbilityAttributeValue, optional abilityName : name) {
@@ -54,6 +64,7 @@ function RPO_getSkillStaminaCostModifier(skill: ESkill): float {
 
   return 1
        * RPO_refreshmentIncreasesAllStaminaCostModifier()
-       * RPO_getOverallResourceConsumptionWithToxicityModifier();
+       * RPO_getOverallResourceConsumptionWithToxicityModifier()
+       * RPO_getOverallResourceConsumptionWithQuenModifier();
 }
 

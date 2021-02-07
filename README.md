@@ -15,7 +15,7 @@ Sign tree:
 - [x] Igni intensity adds: when reaching 100% stamina, gain a burst of adrenaline
 - Aard Sweep (aard alt) adds: casting a sign with exactly 2 adrenaline and not more consumes all adrenaline but restores stamina.
 - Yrden intensity perk (3rd row): When hit, if it's the first time you've been in the previous 5 seconds window, gain stamina
-- Active Shield (quen alt) adds: While Quen is active resources regeneration and consumption are removed and heavy attacks deal more damage while light attacks deal less damage.
+- [x] Active Shield (quen alt) adds: While Quen is active resources regeneration and consumption are removed and heavy attacks deal more damage while light attacks deal less damage.
 
 Alchemy tree:
 - [x] Refreshment: When at maximum adrenaline, consuming stamina restores health. The lower the stamina the higher the heal. Also increases all stamina cost by 50%

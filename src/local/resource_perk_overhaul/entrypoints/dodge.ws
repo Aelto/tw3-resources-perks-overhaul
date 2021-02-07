@@ -5,7 +5,8 @@ function RPO_dodgeEntryPoint(player: CR4Player): bool {
                * RPO_getArmorWeight()
                * RPO_refreshmentIncreasesAllStaminaCostModifier()
                * RPO_getResourceConsumptionDefensiveActionsModifier()
-               * RPO_getOverallResourceConsumptionWithToxicityModifier();
+               * RPO_getOverallResourceConsumptionWithToxicityModifier()
+               * RPO_getOverallResourceConsumptionWithQuenModifier();
 
   // Fleet footed:
   // Dodges and rolls now consume adrenaline when available. Geralt now loses a

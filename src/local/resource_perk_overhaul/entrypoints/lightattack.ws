@@ -7,7 +7,8 @@ function RPO_lightattackEntryPoint(player: CR4Player): bool {
               * RPO_getAdrenalineIncreaseStaminaCostModifier()
               * RPO_refreshmentIncreasesAllStaminaCostModifier()
               * RPO_getResourceConsumptionAggressiveActionsModifier()
-              * RPO_getOverallResourceConsumptionWithToxicityModifier();
+              * RPO_getOverallResourceConsumptionWithToxicityModifier()
+              * RPO_getOverallResourceConsumptionWithQuenModifier();
 
   fixative_level = RPO_getSkillLevel(S_Alchemy_s06);
 
