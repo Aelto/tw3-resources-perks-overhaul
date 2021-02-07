@@ -25,6 +25,7 @@ function RPO_heavyattackEntryPoint(player: CR4Player): bool {
 
   player.DrainStamina(ESAT_FixedValue, stamina_cost, 2);
 
+  RPO_reduceShieldHealthIfActive();
 
   return true;
 }

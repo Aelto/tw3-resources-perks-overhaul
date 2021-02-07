@@ -15,11 +15,13 @@ function RPO_lightattackEntryPoint(player: CR4Player): bool {
   // when fixative is enabled, fast attacks use adrenaline as a resource and their
   // damage now scales on adrenaline.
   if (fixative_level > 0) {
-    player.DrainFocus(stamina_cost * 3 / fixative_level);
+    player.DrainFocus(stamina_cost * 0.3 / fixative_level);
   }
   else {
     player.DrainStamina(ESAT_FixedValue, stamina_cost, 1);
   }
+
+  RPO_reduceShieldHealthIfActive();
 
   return true;
 }

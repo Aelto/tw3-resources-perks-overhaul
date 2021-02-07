@@ -5,12 +5,12 @@ function RPO_consumingStaminaRestoresHealth(manager: W3AbilityManager, stamina_c
   }
 
   // restores health only if adrenaline is full
-  if (thePlayer.GetStat(BCS_Focus) >= 1) {
+  if (thePlayer.GetStatPercents(BCS_Focus) >= 1) {
     thePlayer.GainStat(
       BCS_Vitality,
       stamina_cost
       * thePlayer.GetHealth()
-      * 0.05
+      * 0.0001
       * RPO_getSkillLevel(S_Alchemy_s02)
     );
   }

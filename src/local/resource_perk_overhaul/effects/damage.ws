@@ -10,6 +10,13 @@ function RPO_damageModifier(out action: W3DamageAction, playerAttacker: CR4Playe
     modifier = RPO_updateAttackDamageBasedOnCurrentStamina(playerAttacker, attackAction)
              * RPO_globalAttackDamageModifier(playerAttacker, attackAction);
 
+    if (playerAttacker.IsHeavyAttack(attackAction.GetAttackName())) {
+      modifier *= RPO_getHeavyAttackWithQuenModifier();
+    }
+    else if (playerAttacker.IsLightAttack(attackAction.GetAttackName())) {
+      modifier *= RPO_getLightAttackWithQuenModifier();
+    }
+
     // RPODEBUG("damage output, modifier: " + modifier);
 
     action.processedDmg.vitalityDamage *= modifier;
@@ -94,10 +101,14 @@ function RPO_adrenalineDamageInputModifier(): float {
        * 0.01;
 }
 
-function RPO_damageReceivedManager() {
+function RPO_damageReceivedManager(manager: W3AbilityManager) {
   var props: ResourcePerkOverhaulProperties;
   var timestamp: float;
   var yrden_intensity_level: int;
+
+  if (!((W3PlayerAbilityManager)manager) && manager.owner != GetWitcherPlayer()) {
+    return;
+  }
 
   props = RPO_getProperties();
   timestamp = theGame.GetEngineTimeAsSeconds();
@@ -107,13 +118,11 @@ function RPO_damageReceivedManager() {
   if (props.last_hit_timestamp + (5 - yrden_intensity_level) < timestamp
   && yrden_intensity_level > 0) {
 
-    RPODEBUG("adrenaline gain: " + yrden_intensity_level // quen active shield
-      * 0.5);
-
     thePlayer.GainStat(
       BCS_Focus,
-      yrden_intensity_level // quen active shield
+      yrden_intensity_level
       * 0.2
+      * (1 - thePlayer.GetStatPercents(BCS_Stamina))
     );
   }
 
