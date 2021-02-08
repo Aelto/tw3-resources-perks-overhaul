@@ -1,6 +1,8 @@
 
 function RPO_rollEntryPoint(player: CR4Player): bool {
   var stamina_cost: float;
+  var delay: float;
+
   stamina_cost = 4 * RPO_getArmorWeight()
                * RPO_refreshmentIncreasesAllStaminaCostModifier()
                * RPO_getResourceConsumptionDefensiveActionsModifier()
@@ -19,13 +21,17 @@ function RPO_rollEntryPoint(player: CR4Player): bool {
   }
 
   // default case where dodges and rolls simply consume stamina
-  else if (player.GetStaminaPercents() > stamina_cost / 100) {
-    player.DrainStamina(ESAT_FixedValue, stamina_cost, 1);
-  }
-
-  // no adrenaline nor stamina available, the player cannot dodge.
   else {
-    return false;
+    if (player.GetStaminaPercents() > stamina_cost / 100) {
+      delay = 1;
+    }
+    // no stamina available, the player can still dodge but its stamina regen
+    // is paused for 3 seconds
+    else {
+      delay = 3;
+    }
+
+    player.DrainStamina(ESAT_FixedValue, stamina_cost, delay);
   }
 
   return true;
