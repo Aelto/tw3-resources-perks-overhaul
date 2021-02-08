@@ -67,10 +67,17 @@ function RPO_updateAttackDamageBasedOnCurrentStamina(playerAttacker: CR4Player, 
       return current_stamina;
     }
 
-    // it is a value going from 0 to 1
-    current_stamina = thePlayer.GetStatPercents(BCS_Stamina);
+    // it is a value going from 0 to 100
+    current_stamina = thePlayer.GetStatPercents(BCS_Stamina) * 100;
 
-    return current_stamina;
+    // returns the following results:
+    // 100%: 0.8519443031609923
+    //  75%: 0.7910212155829831 
+    //  50%: 0.7059613126314263 
+    //  25%: 0.563948368400518
+    //  10%: 0.38823676709842325
+    //   0%: 0
+    return LogF(1 + current_stamina * 0.5) / LogF(101);
   }
 
   return 1;
@@ -79,16 +86,16 @@ function RPO_updateAttackDamageBasedOnCurrentStamina(playerAttacker: CR4Player, 
 // the mod reduces global attack damage by a flat % by default. This is to give
 // perks a purpose and because the player would become way too strong otherwise.
 function RPO_globalAttackDamageModifier(playerAttacker: CR4Player, attackAction: W3Action_Attack): float {
-  if (playerAttacker && attackAction
-  // we don't want to update the rend damage with the current stamina because
-  // rend drains stamina and it would not deal any damage if we did.
-  && thePlayer.GetCombatAction() != EBAT_SpecialAttack_Heavy
-  // we only change the damage for heavy and light attacks, not signs.
-  && playerAttacker.IsHeavyAttack(attackAction.GetAttackName())
-  || playerAttacker.IsLightAttack(attackAction.GetAttackName())) {
+  // if (playerAttacker && attackAction
+  // // we don't want to update the rend damage with the current stamina because
+  // // rend drains stamina and it would not deal any damage if we did.
+  // && thePlayer.GetCombatAction() != EBAT_SpecialAttack_Heavy
+  // // we only change the damage for heavy and light attacks, not signs.
+  // && playerAttacker.IsHeavyAttack(attackAction.GetAttackName())
+  // || playerAttacker.IsLightAttack(attackAction.GetAttackName())) {
     
-    return 0.7;
-  }
+  //   return 0.7;
+  // }
 
   return 1;
 }
