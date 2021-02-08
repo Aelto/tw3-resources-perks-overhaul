@@ -4,6 +4,7 @@ function RPO_lightattackEntryPoint(player: CR4Player): bool {
   var fixative_level: int;
 
   stamina_cost = (30 / RPO_getArmorWeight() + 2)
+              * RPO_getLightAttackStaminaCostMultiplier()
               * RPO_getAdrenalineIncreaseStaminaCostModifier()
               * RPO_refreshmentIncreasesAllStaminaCostModifier()
               * RPO_getResourceConsumptionAggressiveActionsModifier()
@@ -18,7 +19,7 @@ function RPO_lightattackEntryPoint(player: CR4Player): bool {
     player.DrainFocus(stamina_cost * 0.3 / fixative_level);
   }
   else {
-    player.DrainStamina(ESAT_FixedValue, stamina_cost, 1);
+    player.DrainStamina(ESAT_FixedValue, stamina_cost, 1 * RPO_getStaminaRegenerationDelayMultiplier());
   }
 
   RPO_reduceShieldHealthIfActive();

@@ -24,7 +24,7 @@ function RPO_statGainModifier(manager: W3AbilityManager, stat : EBaseCharacterSt
 }
 
 function RPO_overallStaminaRegenerationModifier(): float {
-  return 2.5;
+  return RPO_getStaminaRegenerationMultiplier();
 }
 
 // this code happens whenever Gerealt gains a stat, but after the stat has been
@@ -49,24 +49,29 @@ function RPO_statGainManager(manager: W3AbilityManager, stat : EBaseCharacterSta
                           ////////////////////////
 
 function RPO_getSignCostModifier(): float {
-  return 0.5
+  return RPO_getSignStaminaCostMultiplier()
        * RPO_refreshmentIncreasesAllStaminaCostModifier()
        * RPO_getResourceConsumptionAggressiveActionsModifier()
        * RPO_getOverallResourceConsumptionWithToxicityModifier();
 }
 
 function RPO_staminaCostManager(action : EStaminaActionType, isPerSec : bool, out cost : SAbilityAttributeValue, out delay : SAbilityAttributeValue, optional abilityName : name) {
+  var modifier: float;
+
   if(action == ESAT_Ability) {
-    cost.valueAdditive *= RPO_getSignCostModifier();
-    cost.valueMultiplicative *= RPO_getSignCostModifier();
-    cost.valueBase *= RPO_getSignCostModifier();
+    modifier = RPO_getSignCostModifier();
+
+    cost.valueAdditive *= modifier;
+    cost.valueMultiplicative *= modifier;
+    cost.valueBase *= modifier;
   }
 }
 
 // the function reduce the skill cost modifier to 50% when it's a sign
 function RPO_getSkillStaminaCostModifier(skill: ESkill): float {
   if (IsSkillSign(skill)) {
-    return 0.5 * RPO_getSignCostModifier();
+    return RPO_getSignStaminaRequirementMultiplier()
+         * RPO_getSignCostModifier();
   }
 
   return 1

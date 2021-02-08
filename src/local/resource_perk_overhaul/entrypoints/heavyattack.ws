@@ -5,6 +5,7 @@ function RPO_heavyattackEntryPoint(player: CR4Player): bool {
   var adrenaline_cost: float;
 
   stamina_cost = (80 / RPO_getArmorWeight() + 3)
+               * RPO_getHeavyAttackStaminaCostMultiplier()
                * RPO_getAdrenalineIncreaseStaminaCostModifier()
                * RPO_refreshmentIncreasesAllStaminaCostModifier()
                * RPO_getResourceConsumptionAggressiveActionsModifier()
@@ -23,7 +24,7 @@ function RPO_heavyattackEntryPoint(player: CR4Player): bool {
 
   // RPODEBUG("heavy attack consume adrenaline")
 
-  player.DrainStamina(ESAT_FixedValue, stamina_cost, 2);
+  player.DrainStamina(ESAT_FixedValue, stamina_cost, 2 * RPO_getStaminaRegenerationDelayMultiplier());
 
   RPO_reduceShieldHealthIfActive();
 

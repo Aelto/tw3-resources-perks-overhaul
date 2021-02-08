@@ -28,13 +28,11 @@
 // Endure Pain (S_Alchemy_s20)
 // Fast Metabolism (S_Alchemy_s15)
 
-function RPO_requireSkillEquipped(): bool {
-  // TODO: use the mod menu value instead
-  return true;
-}
-
 function RPO_getSkillLevel(skill : ESkill): int {
-  if (!thePlayer.IsSkillEquipped(skill) && RPO_requireSkillEquipped()) {
+  if (!RPO_arePerksEnabled()
+  || !thePlayer.IsSkillEquipped(skill)
+  && RPO_perksNeedToBeEquipped()) {
+
     return 0;
   }
 

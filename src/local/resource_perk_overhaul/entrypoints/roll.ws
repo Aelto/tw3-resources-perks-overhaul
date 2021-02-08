@@ -4,6 +4,7 @@ function RPO_rollEntryPoint(player: CR4Player): bool {
   var delay: float;
 
   stamina_cost = 4 * RPO_getArmorWeight()
+               * RPO_getRollStaminaCostMultiplier()
                * RPO_refreshmentIncreasesAllStaminaCostModifier()
                * RPO_getResourceConsumptionDefensiveActionsModifier()
                * RPO_getOverallResourceConsumptionWithToxicityModifier()
@@ -31,7 +32,7 @@ function RPO_rollEntryPoint(player: CR4Player): bool {
       delay = 3;
     }
 
-    player.DrainStamina(ESAT_FixedValue, stamina_cost, delay);
+    player.DrainStamina(ESAT_FixedValue, stamina_cost, delay * RPO_getStaminaRegenerationDelayMultiplier());
   }
 
   return true;

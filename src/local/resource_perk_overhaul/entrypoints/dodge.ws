@@ -4,6 +4,7 @@ function RPO_dodgeEntryPoint(player: CR4Player): bool {
   var delay: float;
 
   stamina_cost = 2
+               * RPO_getDodgeStaminaCostMultiplier()
                * RPO_getArmorWeight()
                * RPO_refreshmentIncreasesAllStaminaCostModifier()
                * RPO_getResourceConsumptionDefensiveActionsModifier()
@@ -32,7 +33,7 @@ function RPO_dodgeEntryPoint(player: CR4Player): bool {
       delay = 2;
     }
 
-    player.DrainStamina(ESAT_FixedValue, stamina_cost, delay);
+    player.DrainStamina(ESAT_FixedValue, stamina_cost, delay * RPO_getStaminaRegenerationDelayMultiplier());
   }
 
 
