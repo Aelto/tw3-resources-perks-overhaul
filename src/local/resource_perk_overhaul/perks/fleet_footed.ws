@@ -6,5 +6,5 @@
 function RPO_missingStaminaDamageInputModifier(): float {
   return (1 - thePlayer.GetStaminaPercents())
        * 0.005
-       / RPO_getSkillLevel(S_Sword_s09);
+       * RPO_getSkillLevel(S_Sword_s09);
 }
