@@ -3,7 +3,7 @@ function RPO_lightattackEntryPoint(player: CR4Player): bool {
   var stamina_cost: float;
   var fixative_level: int;
 
-  stamina_cost = (30 / RPO_getArmorWeight() + 2)
+  stamina_cost = (80 / RPO_getArmorWeight() + 3)
               * RPO_getLightAttackStaminaCostMultiplier()
               * RPO_getAdrenalineIncreaseStaminaCostModifier()
               * RPO_refreshmentIncreasesAllStaminaCostModifier()
