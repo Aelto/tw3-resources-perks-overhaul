@@ -3,6 +3,10 @@ function RPO_rollEntryPoint(player: CR4Player): bool {
   var stamina_cost: float;
   var delay: float;
 
+  if (!RPO_isEnabled()) {
+    return true;
+  }
+
   stamina_cost = 4 * RPO_getArmorWeight()
                * RPO_getRollStaminaCostMultiplier()
                * RPO_refreshmentIncreasesAllStaminaCostModifier()

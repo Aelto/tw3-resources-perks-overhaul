@@ -4,6 +4,10 @@ function RPO_heavyattackEntryPoint(player: CR4Player): bool {
   var heavy_attack_consume_adrenaline_level: int;
   var adrenaline_cost: float;
 
+  if (!RPO_isEnabled()) {
+    return true;
+  }
+
   stamina_cost = (80 / RPO_getArmorWeight() + 3)
                * RPO_getHeavyAttackStaminaCostMultiplier()
                * RPO_getAdrenalineIncreaseStaminaCostModifier()

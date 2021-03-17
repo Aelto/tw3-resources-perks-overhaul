@@ -93,3 +93,16 @@ function RPO_getSignStaminaRequirementMultiplier(): float {
     .GetVarValue('RPOgeneral', 'RPOsignStaminaRequirementMultiplier')
   );
 }
+
+function RPO_canParryAnything(): bool {
+  return theGame
+    .GetInGameConfigWrapper()
+    .GetVarValue('RPOgeneral', 'RPOcanParryAnything');
+}
+function RPO_getParrySizeStamineRequirementMultiplier(): float {
+  return StringToFloat(
+    theGame
+    .GetInGameConfigWrapper()
+    .GetVarValue('RPOgeneral', 'RPOparrySizeStaminaRequirementMultiplier')
+  );
+}

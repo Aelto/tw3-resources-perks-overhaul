@@ -3,6 +3,10 @@ function RPO_dodgeEntryPoint(player: CR4Player): bool {
   var stamina_cost: float;
   var delay: float;
 
+  if (!RPO_isEnabled()) {
+    return true;
+  }
+
   stamina_cost = 2
                * RPO_getDodgeStaminaCostMultiplier()
                * RPO_getArmorWeight()

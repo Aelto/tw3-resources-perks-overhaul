@@ -30,6 +30,7 @@
 
 function RPO_getSkillLevel(skill : ESkill): int {
   if (!RPO_arePerksEnabled()
+  || !RPO_isEnabled()
   || !thePlayer.IsSkillEquipped(skill)
   && RPO_perksNeedToBeEquipped()) {
 

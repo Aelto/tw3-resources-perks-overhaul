@@ -5,5 +5,5 @@ set gamePath=D:\programs\Steam\steamapps\common\The Witcher 3
 
 REM do not update anything below this line
 set modPath=%cd%\..
-set modName=modResourcePerkOverhaul
+set modName=modResourcesPerksOverhaul
 set modKitPath=D:\programs\witcher_3_mod_tools\bin\x64
