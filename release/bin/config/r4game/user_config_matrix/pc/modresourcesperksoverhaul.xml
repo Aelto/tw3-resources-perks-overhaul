@@ -16,7 +16,9 @@
         <Entry varId="RPOrollStaminaCostMultiplier" value="1.1" />
         <Entry varId="RPOsignStaminaCostMultiplier" value="0.8" />
         <Entry varId="RPOsignStaminaRequirementMultiplier" value="0.8" />
-
+        
+        <Entry varId="RPOcanParryAnything" value="1" />
+        <Entry varId="RPOparrySizeStaminaRequirementMultiplier" value="1" />
         
         <Entry varId="RPOmodInitialized" value="1" />
       </Preset>
@@ -28,6 +30,7 @@
         <Var id="RPOperksEnabled" displayName="rpo_perks_enabled" displayType="TOGGLE" />
         <Var id="RPOrequirePerksEquipped" displayName="rpo_require_perks_equipped" displayType="TOGGLE" />
         
+        <!-- <Var id="RPOstaminaMultipliersSeparator" displayName="rpo_stamina_multipliers_separator" displayType="GAMMA;0;0;0" /> -->
         <Var id="RPOstaminaRegenerationMultiplier" displayName="rpo_stamina_regeneration_multiplier" displayType="SLIDER;0;5;50" />
         <Var id="RPOstaminaRegenerationDelayMultiplier" displayName="rpo_stamina_regeneration_delay_multiplier" displayType="SLIDER;0;5;50" />
         <Var id="RPOmissingStaminaDamageLossMultiplier" displayName="rpo_missing_stamina_damage_loss_multiplier" displayType="SLIDER;0;5;50" />
@@ -37,7 +40,10 @@
         <Var id="RPOrollStaminaCostMultiplier" displayName="rpo_roll_stamina_cost_multiplier" displayType="SLIDER;0;5;50" />
         <Var id="RPOsignStaminaCostMultiplier" displayName="rpo_sign_stamina_cost_multiplier" displayType="SLIDER;0;5;50" />
         <Var id="RPOsignStaminaRequirementMultiplier" displayName="rpo_sign_stamina_requirement_multiplier" displayType="SLIDER;0;5;50" />
+        <Var id="RPOparrySizeStaminaRequirementMultiplier" displayName="rpo_parry_size_stamina_requirement_multiplier" displayType="SLIDER;0;5;50" />
         
+        <Var id="RPOcanParryAnything" displayName="rpo_can_parry_anything" displayType="TOGGLE" />
+
         
         <Var id="RPOmodInitialized" displayName="rpo_mod_initialized" displayType="TOGGLE" />
     </VisibleVars>

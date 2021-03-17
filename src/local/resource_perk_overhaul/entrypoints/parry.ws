@@ -7,8 +7,10 @@ function RPO_getEntitySize(entity: CActor): float {
 
   moving_agent = (CMovingPhysicalAgentComponent)entity.GetMovingAgentComponent();
 
-  return moving_agent.GetCapsuleHeight()
-       + moving_agent.GetCapsuleRadius() * 3;
+  RPODEBUG("height: " + moving_agent.GetCapsuleHeight() + " width: " + moving_agent.GetCapsuleRadius());
+
+  return moving_agent.GetCapsuleHeight() * 0.1
+       + moving_agent.GetCapsuleRadius() * 10;
 }
 
 // returns a value between 0 and 1 that represents the % of stamina required
@@ -21,12 +23,19 @@ function RPO_getSizeParryCost(size: float): float {
 }
 
 
-function RPO_parryActor(attacker: CActor): bool {
+function RPO_parryActor(parry_info: SParryInfo): bool {
+  var attacker: CActor;
   var stamina_cost: float;
   var had_stamina_to_fully_parry: bool;
   var delay: float;
 
+  attacker = parry_info.attacker;
+
   if (!RPO_isEnabled()) {
+    return true;
+  }
+
+  if (parry_info.target != thePlayer || attacker == thePlayer) {
     return true;
   }
 
