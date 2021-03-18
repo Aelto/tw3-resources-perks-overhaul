@@ -7,7 +7,7 @@ function RPO_getEntitySize(entity: CActor): float {
 
   moving_agent = (CMovingPhysicalAgentComponent)entity.GetMovingAgentComponent();
 
-  RPODEBUG("height: " + moving_agent.GetCapsuleHeight() + " width: " + moving_agent.GetCapsuleRadius());
+  // RPODEBUG("height: " + moving_agent.GetCapsuleHeight() + " width: " + moving_agent.GetCapsuleRadius());
 
   return moving_agent.GetCapsuleHeight() * 0.1
        + moving_agent.GetCapsuleRadius() * 10;
