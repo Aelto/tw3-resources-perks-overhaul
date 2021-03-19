@@ -20,13 +20,35 @@ function RPO_heavyattackEntryPoint(player: CR4Player): bool {
 
   if (heavy_attack_consume_adrenaline_level > 0) {
     adrenaline_cost = heavy_attack_consume_adrenaline_level * 0.33;
+
+    if (thePlayer.GetSt)
+
     // we also remove the consumed adrenaline from the stamina cost
     stamina_cost *= 1 - adrenaline_cost;
+
+    // we still check of stamina, because if there is not enough adrenaline it
+    // goes back to the stamina anyway. Adrenaline is not a restricted resource.
+    if (thePlayer.GetStaminaPercents() < stamina_cost && !RPO_canPerformActionsWithoutStamina()) {
+      return false;
+    }
 
     player.DrainFocus(adrenaline_cost);
   }
 
   // RPODEBUG("heavy attack consume adrenaline")
+
+  if (player.GetStaminaPercents() > stamina_cost / 100) {
+    delay = 1;
+  }
+  // no stamina available, the player can still attack but its stamina regen
+  // is paused for 3 seconds
+  else {
+    delay = 3;
+  }
+
+  if (delay > 1 && !RPO_canPerformActionsWithoutStamina()) {
+    return false;
+  }
 
   player.DrainStamina(ESAT_FixedValue, stamina_cost, 2 * RPO_getStaminaRegenerationDelayMultiplier());
 

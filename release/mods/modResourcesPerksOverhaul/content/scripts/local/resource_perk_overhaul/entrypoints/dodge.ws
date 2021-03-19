@@ -37,6 +37,10 @@ function RPO_dodgeEntryPoint(player: CR4Player): bool {
       delay = 2;
     }
 
+    if (delay == 2 && !RPO_canPerformActionsWithoutStamina()) {
+      return false;
+    }
+
     player.DrainStamina(ESAT_FixedValue, stamina_cost, delay * RPO_getStaminaRegenerationDelayMultiplier());
   }
 

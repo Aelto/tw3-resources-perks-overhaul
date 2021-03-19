@@ -43,7 +43,7 @@
         <Var id="RPOparrySizeStaminaRequirementMultiplier" displayName="rpo_parry_size_stamina_requirement_multiplier" displayType="SLIDER;0;5;50" />
         
         <Var id="RPOcanParryAnything" displayName="rpo_can_parry_anything" displayType="TOGGLE" />
-
+        <Var id="RPOcanPerformActionsWithoutStamina" displayName="rpo_can_perform_actions_without_stamina" displayType="TOGGLE" />
         
         <Var id="RPOmodInitialized" displayName="rpo_mod_initialized" displayType="TOGGLE" />
     </VisibleVars>

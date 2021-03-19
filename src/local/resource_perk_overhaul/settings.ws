@@ -106,3 +106,9 @@ function RPO_getParrySizeStamineRequirementMultiplier(): float {
     .GetVarValue('RPOgeneral', 'RPOparrySizeStaminaRequirementMultiplier')
   );
 }
+
+function RPO_canPerformActionsWithoutStamina(): bool {
+  return theGame
+    .GetInGameConfigWrapper()
+    .GetVarValue('RPOgeneral', 'RPOcanPerformActionsWithoutStamina');
+}

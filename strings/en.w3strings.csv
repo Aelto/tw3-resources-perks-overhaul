@@ -18,7 +18,8 @@
 2115494016|        |option_rpo_roll_stamina_cost_multiplier|<font color="#ffd33d">              :</font> Roll cost multiplier
 2115494017|        |option_rpo_sign_stamina_cost_multiplier|<font color="#ffd33d">              :</font> Sign cost multiplier
 2115494018|        |option_rpo_sign_stamina_requirement_multiplier|<font color="#ffd33d">              :</font> Sign requirement multiplier
-2115494019|        |option_rpo_parry_size_stamina_requirement_multiplier|<font color="#ffd33d">              :</font> Parry multiplier (scales with size & strength)
+2115494019|        |option_rpo_parry_size_stamina_requirement_multiplier|<font color="#ffd33d">              :</font> Parry multiplier (scales with enemy size & strength)
 2115494020|        |option_rpo_can_parry_anything|Can parry heavy attacks
-2115494021|        |option_rpo_mod_initialized|<font color="#ea4a5a">MOD INITIALIZED</font> (reset settings when OFF)
-2115494022|        |option_resources_perks_overhaul_initialized|<font color="#30a14e">Resources Perks overhaul</font> initialized
+2115494021|        |option_rpo_can_perform_actions_without_stamina|Can perform actions without stamina
+2115494022|        |option_rpo_mod_initialized|<font color="#ea4a5a">MOD INITIALIZED</font> (reset settings when OFF)
+2115494023|        |option_resources_perks_overhaul_initialized|<font color="#30a14e">Resources Perks overhaul</font> initialized

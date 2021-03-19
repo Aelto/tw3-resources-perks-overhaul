@@ -26,6 +26,7 @@ copy en.w3strings kr.w3strings
 copy en.w3strings pl.w3strings
 copy en.w3strings ru.w3strings
 copy en.w3strings zh.w3strings
+copy en.w3strings cn.w3strings
 
 cd %modpath%\strings-perks
 
@@ -49,5 +50,6 @@ copy en.w3strings kr.w3strings
 copy en.w3strings pl.w3strings
 copy en.w3strings ru.w3strings
 copy en.w3strings zh.w3strings
+copy en.w3strings cn.w3strings
 
 cd %modpath%/scripts
