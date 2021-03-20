@@ -58,7 +58,7 @@ function RPO_getSignCostModifier(): float {
 function RPO_staminaCostManager(action : EStaminaActionType, isPerSec : bool, out cost : SAbilityAttributeValue, out delay : SAbilityAttributeValue, optional abilityName : name) {
   var modifier: float;
 
-  if(action == ESAT_Ability) {
+  if(action == ESAT_Ability && RPO_isEnabled()) {
     modifier = RPO_getSignCostModifier();
 
     cost.valueAdditive *= modifier;
@@ -69,6 +69,10 @@ function RPO_staminaCostManager(action : EStaminaActionType, isPerSec : bool, ou
 
 // the function reduce the skill cost modifier to 50% when it's a sign
 function RPO_getSkillStaminaCostModifier(skill: ESkill): float {
+  if (!RPO_isEnabled()) {
+    return 1;
+  }
+
   if (IsSkillSign(skill)) {
     return RPO_getSignStaminaRequirementMultiplier()
          * RPO_getSignCostModifier();
