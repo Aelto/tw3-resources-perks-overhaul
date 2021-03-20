@@ -71,16 +71,21 @@ function RPO_updateAttackDamageBasedOnCurrentStamina(playerAttacker: CR4Player, 
     current_stamina = thePlayer.GetStatPercents(BCS_Stamina) * 100;
 
     // gives the following results:
-    // 100%: 0.8519443031609923
-    //  75%: 0.7910212155829831 
-    //  50%: 0.7059613126314263 
-    //  25%: 0.563948368400518
-    //  10%: 0.38823676709842325
-    //   0%: 0
+    // 0% stamina: 0% damage
+    // 10% stamina: 23% damage
+    // 20% stamina: 39% damage
+    // 30% stamina: 51% damage
+    // 40% stamina: 61% damage
+    // 50% stamina: 70% damage
+    // 60% stamina: 77% damage
+    // 70% stamina: 84% damage
+    // 80% stamina: 90% damage
+    // 90% stamina: 95% damage
+    // 100% stamina: 100% damage
     // note: we reuse the stamina variable here
     // And because we have the 1 - in front of it we have a value start at 0
     // when full stamina and 1 when stamina is empty.
-    current_stamina = 1 - LogF(1 + current_stamina * 0.5) / LogF(101);
+    current_stamina = 1 - LogF(1 + current_stamina * 0.05) / LogF(6);
 
     // here we don't want the value to go higher than 1 because it means 100%
     // damage reduction. And more would lead the value below zero.

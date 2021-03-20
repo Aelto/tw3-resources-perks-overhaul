@@ -9,16 +9,17 @@
         <Entry varId="RPOrequirePerksEquipped" value="1" />
         <Entry varId="RPOstaminaRegenerationMultiplier" value="2" />
         <Entry varId="RPOstaminaRegenerationDelayMultiplier" value="0.3" />
-        <Entry varId="RPOmissingStaminaDamageLossMultiplier" value="0.5" />
+        <Entry varId="RPOmissingStaminaDamageLossMultiplier" value="1" />
         <Entry varId="RPOlightAttackStaminaCostMultiplier" value="0.8" />
         <Entry varId="RPOheavyAttackStaminaCostMultiplier" value="1.1" />
         <Entry varId="RPOdodgeStaminaCostMultiplier" value="0.7" />
         <Entry varId="RPOrollStaminaCostMultiplier" value="1.1" />
         <Entry varId="RPOsignStaminaCostMultiplier" value="0.8" />
         <Entry varId="RPOsignStaminaRequirementMultiplier" value="0.8" />
+        <Entry varId="RPOparrySizeStaminaRequirementMultiplier" value="1" />
         
         <Entry varId="RPOcanParryAnything" value="1" />
-        <Entry varId="RPOparrySizeStaminaRequirementMultiplier" value="1" />
+        <Entry varId="RPOcanPerformActionsWithoutStamina" value="1" />
         
         <Entry varId="RPOmodInitialized" value="1" />
       </Preset>
