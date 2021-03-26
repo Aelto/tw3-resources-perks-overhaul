@@ -1,4 +1,7 @@
 
+// be careful, it creates a copy of the properties which means that if you want
+// to edit a value you have to edit through `player_input.resource_perk_overhaul_properties`
+// directly and not through the copy that is returned by this function.
 function RPO_getProperties(): ResourcePerkOverhaulProperties {
   var player_input: CPlayerInput;
 

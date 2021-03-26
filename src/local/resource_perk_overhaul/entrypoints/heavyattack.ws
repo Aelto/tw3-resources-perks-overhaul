@@ -9,13 +9,7 @@ function RPO_heavyattackEntryPoint(player: CR4Player): bool {
     return true;
   }
 
-  stamina_cost = (80 / RPO_getArmorWeight() + 3)
-               * RPO_getHeavyAttackStaminaCostMultiplier()
-               * RPO_getAdrenalineIncreaseStaminaCostModifier()
-               * RPO_refreshmentIncreasesAllStaminaCostModifier()
-               * RPO_getResourceConsumptionAggressiveActionsModifier()
-               * RPO_getOverallResourceConsumptionWithToxicityModifier()
-               * RPO_getOverallResourceConsumptionWithQuenModifier();
+  stamina_cost = RPO_getHeavyAttackStaminaCost();
 
   heavy_attack_consume_adrenaline_level = RPO_getSkillLevel(S_Sword_s04);
 
@@ -54,4 +48,14 @@ function RPO_heavyattackEntryPoint(player: CR4Player): bool {
   RPO_reduceShieldHealthIfActive();
 
   return true;
+}
+
+function RPO_getHeavyAttackStaminaCost(): float {
+  return (80 / RPO_getArmorWeight() + 3)
+       * RPO_getHeavyAttackStaminaCostMultiplier()
+       * RPO_getAdrenalineIncreaseStaminaCostModifier()
+       * RPO_refreshmentIncreasesAllStaminaCostModifier()
+       * RPO_getResourceConsumptionAggressiveActionsModifier()
+       * RPO_getOverallResourceConsumptionWithToxicityModifier()
+       * RPO_getOverallResourceConsumptionWithQuenModifier()
 }

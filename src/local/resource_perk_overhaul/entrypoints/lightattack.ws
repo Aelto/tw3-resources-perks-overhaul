@@ -8,13 +8,7 @@ function RPO_lightattackEntryPoint(player: CR4Player): bool {
     return true;
   }
 
-  stamina_cost = (80 / RPO_getArmorWeight() + 3)
-              * RPO_getLightAttackStaminaCostMultiplier()
-              * RPO_getAdrenalineIncreaseStaminaCostModifier()
-              * RPO_refreshmentIncreasesAllStaminaCostModifier()
-              * RPO_getResourceConsumptionAggressiveActionsModifier()
-              * RPO_getOverallResourceConsumptionWithToxicityModifier()
-              * RPO_getOverallResourceConsumptionWithQuenModifier();
+  stamina_cost = RPO_getLightAttackStaminaCost();
 
   fixative_level = RPO_getSkillLevel(S_Alchemy_s06);
 
@@ -47,4 +41,14 @@ function RPO_lightattackEntryPoint(player: CR4Player): bool {
   RPO_reduceShieldHealthIfActive();
 
   return true;
+}
+
+function RPO_getLightAttackStaminaCost(): float {
+  return (80 / RPO_getArmorWeight() + 3)
+       * RPO_getLightAttackStaminaCostMultiplier()
+       * RPO_getAdrenalineIncreaseStaminaCostModifier()
+       * RPO_refreshmentIncreasesAllStaminaCostModifier()
+       * RPO_getResourceConsumptionAggressiveActionsModifier()
+       * RPO_getOverallResourceConsumptionWithToxicityModifier()
+       * RPO_getOverallResourceConsumptionWithQuenModifier()
 }
