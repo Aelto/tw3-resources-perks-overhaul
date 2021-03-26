@@ -8,20 +8,25 @@ function RPO_getMutagen21RegenModifier(): float {
   var max_stamina: float;
   var mean_cost_of_all_actions: float;
 
-  // NOTE: it is not a percent value here
-  mean_cost_of_all_actions = (
-    RPO_getDodgeStaminaCost()
-    + RPO_getHeavyAttackStaminaCost()
-    + RPO_getLightAttackStaminaCost()
-    + RPO_getRollStaminaCost()
-    // there is also the parry cost in theory but it scales
-    // with the enemy health and size so i chose to ignore
-    // it here.
-  ) / 4;
-
   // here it is a percent value going from 0 to 1
   current_stamina = thePlayer.GetStaminaPercents();
   max_stamina = thePlayer.GetStatMax(BCS_Stamina);
+
+  // NOTE: it is not a percent value here
+  if (thePlayer.IsCastingSign()) {
+    mean_cost_of_all_actions = (
+      RPO_getDodgeStaminaCost()
+      + RPO_getHeavyAttackStaminaCost()
+      + RPO_getLightAttackStaminaCost()
+      + RPO_getRollStaminaCost()
+      // there is also the parry cost in theory but it scales
+      // with the enemy health and size so i chose to ignore
+      // it here.
+    ) / 4;
+  }
+  else {
+    mean_cost_of_all_actions = max_stamina * RPO_getSignCostModifier();
+  }
 
   // if the mean cost is let's say 25% of your stamina per action,
   // and that you're at 50% stamina and you have a regen multiplier of 2. 
