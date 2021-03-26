@@ -14,6 +14,9 @@ function RPO_getMutagen21RegenModifier(): float {
 
   // NOTE: it is not a percent value here
   if (thePlayer.IsCastingSign()) {
+    mean_cost_of_all_actions = max_stamina * RPO_getSignCostModifier();
+  }
+  else {
     mean_cost_of_all_actions = (
       RPO_getDodgeStaminaCost()
       + RPO_getHeavyAttackStaminaCost()
@@ -24,13 +27,14 @@ function RPO_getMutagen21RegenModifier(): float {
       // it here.
     ) / 4;
   }
-  else {
-    mean_cost_of_all_actions = max_stamina * RPO_getSignCostModifier();
-  }
 
   // if the mean cost is let's say 25% of your stamina per action,
   // and that you're at 50% stamina and you have a regen multiplier of 2. 
   // That will give 0.25 * 0.5 / 2 = 0.0625,
   // so you'd get 6% of the heal you got before the fix
   return mean_cost_of_all_actions / max_stamina * (1 - current_stamina) / RPO_getStaminaRegenerationMultiplier()
+}
+
+function RPO_shouldGetAncientLeshenDecoctionBuff(): bool {
+  return RandF() < RPO_getStaminaRegenerationMultiplier();
 }
