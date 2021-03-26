@@ -67,7 +67,17 @@ function RPO_staminaCostManager(action : EStaminaActionType, isPerSec : bool, ou
   }
 }
 
-// the function reduce the skill cost modifier to 50% when it's a sign
+function RPO_getSignStaminaRequirementMultiplierIfEnabled(): float {
+  if (!RPO_isEnabled()) {
+    return 1;
+  }
+  
+  return RPO_getSignStaminaRequirementMultiplier();
+}
+
+// the function reduces the skill requirement with a modifier. The modifier is
+// the returned value. A modifier of 0.8 means that a sign requires 80% of its
+// total cost to be cast.
 function RPO_getSkillStaminaCostModifier(skill: ESkill): float {
   if (!RPO_isEnabled()) {
     return 1;
