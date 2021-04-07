@@ -32,9 +32,9 @@ function RPO_getMutagen21RegenModifier(): float {
   // and that you're at 50% stamina and you have a regen multiplier of 2. 
   // That will give 0.25 * 0.5 / 2 = 0.0625,
   // so you'd get 6% of the heal you got before the fix
-  return mean_cost_of_all_actions / max_stamina * (1 - current_stamina) / RPO_getStaminaRegenerationMultiplier()
+  return mean_cost_of_all_actions / max_stamina * (1 - current_stamina) / RPO_getStaminaRegenerationMultiplier();
 }
 
 function RPO_shouldGetAncientLeshenDecoctionBuff(): bool {
-  return RandF() < RPO_getStaminaRegenerationMultiplier();
+  return RandF() < RPO_getSignStaminaCostMultiplier();
 }

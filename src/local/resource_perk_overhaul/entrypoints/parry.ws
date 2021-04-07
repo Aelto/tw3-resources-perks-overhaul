@@ -24,7 +24,7 @@ function RPO_getEntitySize(entity: CActor): float {
 function RPO_getSizeParryCost(size: float): float {
   // at the moment the maximum size we consider is 8
   return size / 8
-       * RPO_getParrySizeStamineRequirementMultiplier();
+       * RPO_getParrySizeStaminaRequirementMultiplier();
 }
 
 // The health of the attacker is also a great way to get the strength of the creature

@@ -42,5 +42,10 @@ function RPO_rollEntryPoint(player: CR4Player): bool {
 }
 
 function RPO_getRollStaminaCost(): float {
-
+  return 4 * RPO_getArmorWeight()
+       * RPO_getRollStaminaCostMultiplier()
+       * RPO_refreshmentIncreasesAllStaminaCostModifier()
+       * RPO_getResourceConsumptionDefensiveActionsModifier()
+       * RPO_getOverallResourceConsumptionWithToxicityModifier()
+       * RPO_getOverallResourceConsumptionWithQuenModifier();
 }

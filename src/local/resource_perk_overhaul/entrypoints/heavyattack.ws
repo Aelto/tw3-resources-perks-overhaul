@@ -57,5 +57,5 @@ function RPO_getHeavyAttackStaminaCost(): float {
        * RPO_refreshmentIncreasesAllStaminaCostModifier()
        * RPO_getResourceConsumptionAggressiveActionsModifier()
        * RPO_getOverallResourceConsumptionWithToxicityModifier()
-       * RPO_getOverallResourceConsumptionWithQuenModifier()
+       * RPO_getOverallResourceConsumptionWithQuenModifier();
 }

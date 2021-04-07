@@ -50,5 +50,5 @@ function RPO_getLightAttackStaminaCost(): float {
        * RPO_refreshmentIncreasesAllStaminaCostModifier()
        * RPO_getResourceConsumptionAggressiveActionsModifier()
        * RPO_getOverallResourceConsumptionWithToxicityModifier()
-       * RPO_getOverallResourceConsumptionWithQuenModifier()
+       * RPO_getOverallResourceConsumptionWithQuenModifier();
 }
