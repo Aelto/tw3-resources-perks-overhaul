@@ -99,11 +99,18 @@ function RPO_canParryAnything(): bool {
     .GetInGameConfigWrapper()
     .GetVarValue('RPOgeneral', 'RPOcanParryAnything');
 }
-function RPO_getParrySizeStamineRequirementMultiplier(): float {
+function RPO_getParrySizeStaminaRequirementMultiplier(): float {
   return StringToFloat(
     theGame
     .GetInGameConfigWrapper()
     .GetVarValue('RPOgeneral', 'RPOparrySizeStaminaRequirementMultiplier')
+  );
+}
+function RPO_getParryStaminaRegenerationMultiplier(): float {
+  return StringToFloat(
+    theGame
+    .GetInGameConfigWrapper()
+    .GetVarValue('RPOgeneral', 'RPOparryStaminaRegenerationMultiplier')
   );
 }
 
