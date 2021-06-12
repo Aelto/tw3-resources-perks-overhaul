@@ -14,7 +14,7 @@ function RPO_getMutagen21RegenModifier(): float {
 
   // NOTE: it is not a percent value here
   if (thePlayer.IsCastingSign()) {
-    mean_cost_of_all_actions = max_stamina * RPO_getSignCostModifier();
+    mean_cost_of_all_actions = max_stamina * RPO_getSignCostModifier(thePlayer.GetCurrentlyCastSign());
   }
   else {
     mean_cost_of_all_actions = (
@@ -36,5 +36,5 @@ function RPO_getMutagen21RegenModifier(): float {
 }
 
 function RPO_shouldGetAncientLeshenDecoctionBuff(): bool {
-  return RandF() < RPO_getSignStaminaCostMultiplier();
+  return RandF() < RPO_getSignStaminaCostMultiplier(thePlayer.GetCurrentlyCastSign());
 }

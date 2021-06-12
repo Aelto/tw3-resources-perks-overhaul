@@ -79,12 +79,81 @@ function RPO_getRollStaminaCostMultiplier(): float {
     .GetVarValue('RPOgeneral', 'RPOrollStaminaCostMultiplier')
   );
 }
-function RPO_getSignStaminaCostMultiplier(): float {
-  return StringToFloat(
-    theGame
-    .GetInGameConfigWrapper()
-    .GetVarValue('RPOgeneral', 'RPOsignStaminaCostMultiplier')
-  );
+function RPO_getSignStaminaCostMultiplier(sign: ESignType): float {
+
+  // Aard
+  if (sign == ST_Aard) {
+    return StringToFloat(
+      theGame
+      .GetInGameConfigWrapper()
+      .GetVarValue('RPOgeneral', 'RPOaardStaminaCostMultiplier')
+    );
+  }
+
+  // Igni
+  else if (sign == ST_Igni) {
+    return StringToFloat(
+      theGame
+      .GetInGameConfigWrapper()
+      .GetVarValue('RPOgeneral', 'RPOigniStaminaCostMultiplier')
+    );
+  }
+
+  // Yrden
+  else if (sign == ST_Yrden) {
+    return StringToFloat(
+      theGame
+      .GetInGameConfigWrapper()
+      .GetVarValue('RPOgeneral', 'RPOyrdenStaminaCostMultiplier')
+    );
+  }
+
+  // Quen
+  else if (sign == ST_Quen) {
+    return StringToFloat(
+      theGame
+      .GetInGameConfigWrapper()
+      .GetVarValue('RPOgeneral', 'RPOquenStaminaCostMultiplier')
+    );
+  }
+
+  else if (sign == ST_Axii) {
+    return StringToFloat(
+      theGame
+      .GetInGameConfigWrapper()
+      .GetVarValue('RPOgeneral', 'RPOaxiiStaminaCostMultiplier')
+    );
+  }
+
+  // when the passed skill is not recognised it returns a mean value of all four
+  // sign costs
+  return (
+    StringToFloat(
+      theGame
+      .GetInGameConfigWrapper()
+      .GetVarValue('RPOgeneral', 'RPOaardStaminaCostMultiplier')
+    ) +
+    StringToFloat(
+      theGame
+      .GetInGameConfigWrapper()
+      .GetVarValue('RPOgeneral', 'RPOigniStaminaCostMultiplier')
+    ) +
+    StringToFloat(
+      theGame
+      .GetInGameConfigWrapper()
+      .GetVarValue('RPOgeneral', 'RPOyrdenStaminaCostMultiplier')
+    ) +
+    StringToFloat(
+      theGame
+      .GetInGameConfigWrapper()
+      .GetVarValue('RPOgeneral', 'RPOquenStaminaCostMultiplier')
+    ) +
+    StringToFloat(
+      theGame
+      .GetInGameConfigWrapper()
+      .GetVarValue('RPOgeneral', 'RPOaxiiStaminaCostMultiplier')
+    )
+  ) / 5;
 }
 function RPO_getSignStaminaRequirementMultiplier(): float {
   return StringToFloat(

@@ -17,7 +17,7 @@ function RPO_consumingStaminaRestoresHealth(manager: W3AbilityManager, stamina_c
 }
 
 function RPO_refreshmentIncreasesAllStaminaCostModifier(): float {
-  if (RPO_getSkillLevel(S_Alchemy_s02) > 0) {
+  if (RPO_arePerksEnabled() && RPO_getSkillLevel(S_Alchemy_s02) > 0) {
     return 1.5;
   }
 
