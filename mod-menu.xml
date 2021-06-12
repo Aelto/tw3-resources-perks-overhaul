@@ -25,6 +25,14 @@
         
         <Entry varId="RPOcanParryAnything" value="1" />
         <Entry varId="RPOcanPerformActionsWithoutStamina" value="1" />
+
+        <Entry varId="RPOmissingStaminaSpeedLossMultiplier" value="1" />
+        <Entry varId="RPOdodgeSpeedMultiplier" value="1" />
+        <Entry varId="RPOrollSpeedMultiplier" value="1" />
+        <Entry varId="RPOheavyAttackSpeedMultiplier" value="1" />
+        <Entry varId="RPOlightAttackSpeedMultiplier" value="1" />
+        <Entry varId="RPOlightArmourMultiplier" value="0.010" />
+        <Entry varId="RPOheavyArmourMultiplier" value="-0.015" />
         
         <Entry varId="RPOmodInitialized" value="1" />
       </Preset>
@@ -55,6 +63,15 @@
         
         <Var id="RPOcanParryAnything" displayName="rpo_can_parry_anything" displayType="TOGGLE" />
         <Var id="RPOcanPerformActionsWithoutStamina" displayName="rpo_can_perform_actions_without_stamina" displayType="TOGGLE" />
+
+        <Var id="RPOmissingStaminaSpeedLossMultiplier" displayName="rpo_missing_stamina_speed_loss_multiplier" displayType="SLIDER;0;2;200" />
+        <Var id="RPOdodgeSpeedMultiplier" displayName="rpo_dodge_speed_multiplier" displayType="SLIDER;0;5;50" />
+        <Var id="RPOrollSpeedMultiplier" displayName="rpo_roll_speed_multiplier" displayType="SLIDER;0;5;50" />
+        <Var id="RPOlightAttackSpeedMultiplier" displayName="rpo_light_attack_speed_multiplier" displayType="SLIDER;0;5;50" />
+        <Var id="RPOheavyAttackSpeedMultiplier" displayName="rpo_heavy_attack_speed_multiplier" displayType="SLIDER;0;5;50" />
+
+        <Var id="RPOlightArmourMultiplier" displayName="rpo_light_armour_multiplier" displayType="SLIDER;-2;2;400" />
+        <Var id="RPOheavyArmourMultiplier" displayName="rpo_heavy_armour_multiplier" displayType="SLIDER;-2;2;400" />
         
         <Var id="RPOmodInitialized" displayName="rpo_mod_initialized" displayType="TOGGLE" />
     </VisibleVars>

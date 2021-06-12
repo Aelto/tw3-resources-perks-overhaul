@@ -188,3 +188,53 @@ function RPO_canPerformActionsWithoutStamina(): bool {
     .GetInGameConfigWrapper()
     .GetVarValue('RPOgeneral', 'RPOcanPerformActionsWithoutStamina');
 }
+
+function RPO_getMissingStaminaSpeedLossMultiplier(): float {
+  return StringToFloat(
+    theGame
+    .GetInGameConfigWrapper()
+    .GetVarValue('RPOgeneral', 'RPOmissingStaminaSpeedLossMultiplier')
+  );
+}
+function RPO_getDodgeSpeedMultiplier(): float {
+  return StringToFloat(
+    theGame
+    .GetInGameConfigWrapper()
+    .GetVarValue('RPOgeneral', 'RPOdodgeSpeedMultiplier')
+  );
+}
+function RPO_getRollSpeedMultiplier(): float {
+  return StringToFloat(
+    theGame
+    .GetInGameConfigWrapper()
+    .GetVarValue('RPOgeneral', 'RPOrollSpeedMultiplier')
+  );
+}
+function RPO_getHeavyAttackSpeedMultiplier(): float {
+  return StringToFloat(
+    theGame
+    .GetInGameConfigWrapper()
+    .GetVarValue('RPOgeneral', 'RPOheavyAttackSpeedMultiplier')
+  );
+}
+function RPO_getLightAttackSpeedMultiplier(): float {
+  return StringToFloat(
+    theGame
+    .GetInGameConfigWrapper()
+    .GetVarValue('RPOgeneral', 'RPOlightAttackSpeedMultiplier')
+  );
+}
+function RPO_getLightArmourSpeedMultiplier(): float {
+  return StringToFloat(
+    theGame
+    .GetInGameConfigWrapper()
+    .GetVarValue('RPOgeneral', 'RPOlightArmourMultiplier')
+  );
+}
+function RPO_getHeavyArmourSpeedMultiplier(): float {
+  return StringToFloat(
+    theGame
+    .GetInGameConfigWrapper()
+    .GetVarValue('RPOgeneral', 'RPOheavyArmourMultiplier')
+  );
+}

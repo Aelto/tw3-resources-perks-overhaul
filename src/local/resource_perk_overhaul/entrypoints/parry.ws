@@ -68,5 +68,9 @@ function RPO_parryActor(parry_info: SParryInfo): bool {
 
   thePlayer.DrainStamina(ESAT_FixedValue, stamina_cost * 100, delay * RPO_getStaminaRegenerationDelayMultiplier());
 
+  if (had_stamina_to_fully_parry) {
+    RPO_resetSpeedModifier();
+  }
+
   return had_stamina_to_fully_parry;
 }

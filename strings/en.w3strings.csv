@@ -26,5 +26,12 @@
 2115494024|        |option_rpo_parry_stamina_regeneration_multiplier|<font color="#ffd33d">              :</font> Regeneration multiplier in parry (% of default renegeration)
 2115494025|        |option_rpo_can_parry_anything|Can parry heavy attacks
 2115494026|        |option_rpo_can_perform_actions_without_stamina|Can perform actions without stamina
-2115494027|        |option_rpo_mod_initialized|<font color="#ea4a5a">MOD INITIALIZED</font> (reset settings when OFF)
-2115494028|        |option_resources_perks_overhaul_initialized|<font color="#30a14e">Resources Perks overhaul</font> initialized
+2115494027|        |option_rpo_missing_stamina_speed_loss_multiplier|<font color="#ffffff">Speed:</font> loss strength from missing stamina
+2115494028|        |option_rpo_dodge_speed_multiplier|<font color="#ffffff">           :</font> dodge modifier
+2115494029|        |option_rpo_roll_speed_multiplier|<font color="#ffffff">           :</font> roll modifier
+2115494030|        |option_rpo_heavy_attack_speed_multiplier|<font color="#ffffff">           :</font> heavy attack modifier
+2115494031|        |option_rpo_light_attack_speed_multiplier|<font color="#ffffff">           :</font> light attack modifier
+2115494032|        |option_rpo_light_armour_multiplier|<font color="#ffffff">           :</font> gain per piece of light armour
+2115494033|        |option_rpo_heavy_armour_multiplier|<font color="#ffffff">           :</font> gain per piece of heavy armour
+2115494034|        |option_rpo_mod_initialized|<font color="#ea4a5a">MOD INITIALIZED</font> (reset settings when OFF)
+2115494035|        |option_resources_perks_overhaul_initialized|<font color="#30a14e">Resources Perks overhaul</font> initialized

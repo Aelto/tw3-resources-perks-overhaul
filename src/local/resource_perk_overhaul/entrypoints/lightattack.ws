@@ -1,5 +1,6 @@
 
 function RPO_lightattackEntryPoint(player: CR4Player): bool {
+  var stamina_percent_before_action: float;
   var stamina_cost: float;
   var fixative_level: int;
   var delay: float;
@@ -8,6 +9,7 @@ function RPO_lightattackEntryPoint(player: CR4Player): bool {
     return true;
   }
 
+  stamina_percent_before_action = thePlayer.GetStaminaPercents();
   stamina_cost = RPO_getLightAttackStaminaCost();
 
   fixative_level = RPO_getSkillLevel(S_Alchemy_s06);
@@ -40,6 +42,12 @@ function RPO_lightattackEntryPoint(player: CR4Player): bool {
 
   RPO_reduceShieldHealthIfActive();
 
+  RPO_resetSpeedModifier();
+  RPO_resetSpeedModifier();
+  thePlayer.RPO_animation_speed_modifier_ids.PushBack(
+    thePlayer.SetAnimationSpeedMultiplier( RPO_getLightAttackSpeed(stamina_percent_before_action), -1 )
+  );
+
   return true;
 }
 
@@ -51,4 +59,11 @@ function RPO_getLightAttackStaminaCost(): float {
        * RPO_getResourceConsumptionAggressiveActionsModifier()
        * RPO_getOverallResourceConsumptionWithToxicityModifier()
        * RPO_getOverallResourceConsumptionWithQuenModifier();
+}
+
+function RPO_getLightAttackSpeed(stamina_percent_before_action: float): float {
+  return 1
+       * RPO_getSpeedModifierForStaminaPercent(stamina_percent_before_action)
+       * RPO_getLightAttackSpeedMultiplier()
+       * RPO_getSpeedModifierFromArmorWeight();
 }
