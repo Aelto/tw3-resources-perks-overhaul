@@ -73,5 +73,5 @@ function RPO_parryActor(parry_info: SParryInfo): bool {
   RPO_resetSpeedModifier();
 
   // can always parry no matter what
-  return true;
+  return RPO_canPerformActionsWithoutStamina() || had_stamina_to_fully_parry;
 }
