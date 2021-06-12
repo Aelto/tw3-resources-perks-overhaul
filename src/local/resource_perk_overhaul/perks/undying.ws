@@ -9,7 +9,7 @@ function RPO_adrenalineGainRestoresHealth(adrenaline_amount: float) {
     BCS_Vitality,
     adrenaline_amount
     * thePlayer.GetHealth()
-    * 0.0001
+    * 0.001
     * RPO_getSkillLevel(S_Sword_s18)
     * current_stamina
   );
