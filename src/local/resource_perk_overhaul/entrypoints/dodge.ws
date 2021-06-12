@@ -42,7 +42,7 @@ function RPO_dodgeEntryPoint(player: CR4Player): bool {
 
   RPO_resetSpeedModifier();
   thePlayer.RPO_animation_speed_modifier_ids.PushBack(
-    thePlayer.SetAnimationSpeedMultiplier( RPO_getRollSpeed(stamina_percent_before_action), -1 )
+    thePlayer.SetAnimationSpeedMultiplier( RPO_getDodgeSpeed(stamina_percent_before_action), -1 )
   );
 
   return true;
