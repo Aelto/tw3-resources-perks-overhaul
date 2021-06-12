@@ -196,6 +196,13 @@ function RPO_getMissingStaminaSpeedLossMultiplier(): float {
     .GetVarValue('RPOgeneral', 'RPOmissingStaminaSpeedLossMultiplier')
   );
 }
+function RPO_getAdrenalineSpeedGain(): float {
+  return StringToFloat(
+    theGame
+    .GetInGameConfigWrapper()
+    .GetVarValue('RPOgeneral', 'RPOadrenalineSpeedGain')
+  );
+}
 function RPO_getDodgeSpeedMultiplier(): float {
   return StringToFloat(
     theGame
@@ -228,13 +235,13 @@ function RPO_getLightArmourSpeedMultiplier(): float {
   return StringToFloat(
     theGame
     .GetInGameConfigWrapper()
-    .GetVarValue('RPOgeneral', 'RPOlightArmourMultiplier')
+    .GetVarValue('RPOgeneral', 'RPOlightArmourSpeedMultiplier')
   );
 }
 function RPO_getHeavyArmourSpeedMultiplier(): float {
   return StringToFloat(
     theGame
     .GetInGameConfigWrapper()
-    .GetVarValue('RPOgeneral', 'RPOheavyArmourMultiplier')
+    .GetVarValue('RPOgeneral', 'RPOheavyArmourSpeedMultiplier')
   );
 }

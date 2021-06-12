@@ -62,5 +62,6 @@ function RPO_getDodgeSpeed(stamina_percent_before_action: float): float {
   return 1
        * RPO_getSpeedModifierForStaminaPercent(stamina_percent_before_action)
        * RPO_getDodgeSpeedMultiplier()
-       * RPO_getSpeedModifierFromArmorWeight();
+       * RPO_getSpeedModifierFromArmorWeight()
+       * RPO_getAdrenalineSpeedMultiplier();
 }

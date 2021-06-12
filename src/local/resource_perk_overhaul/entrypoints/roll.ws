@@ -61,5 +61,6 @@ function RPO_getRollSpeed(stamina_percent_before_action: float): float {
   return 1
        * RPO_getSpeedModifierForStaminaPercent(stamina_percent_before_action)
        * RPO_getRollSpeedMultiplier()
-       * RPO_getSpeedModifierFromArmorWeight();
+       * RPO_getSpeedModifierFromArmorWeight()
+       * RPO_getAdrenalineSpeedMultiplier();
 }

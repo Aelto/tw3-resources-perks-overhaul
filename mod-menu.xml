@@ -9,7 +9,7 @@
         <Entry varId="RPOrequirePerksEquipped" value="1" />
         <Entry varId="RPOstaminaRegenerationMultiplier" value="2" />
         <Entry varId="RPOstaminaRegenerationDelayMultiplier" value="0.3" />
-        <Entry varId="RPOmissingStaminaDamageLossMultiplier" value="1" />
+        <Entry varId="RPOmissingStaminaDamageLossMultiplier" value="0.1" />
         <Entry varId="RPOlightAttackStaminaCostMultiplier" value="0.8" />
         <Entry varId="RPOheavyAttackStaminaCostMultiplier" value="1.1" />
         <Entry varId="RPOdodgeStaminaCostMultiplier" value="0.7" />
@@ -27,12 +27,13 @@
         <Entry varId="RPOcanPerformActionsWithoutStamina" value="1" />
 
         <Entry varId="RPOmissingStaminaSpeedLossMultiplier" value="1" />
+        <Entry varId="RPOadrenalineSpeedGain" value="0.02" />
         <Entry varId="RPOdodgeSpeedMultiplier" value="1" />
         <Entry varId="RPOrollSpeedMultiplier" value="1" />
         <Entry varId="RPOheavyAttackSpeedMultiplier" value="1" />
         <Entry varId="RPOlightAttackSpeedMultiplier" value="1" />
-        <Entry varId="RPOlightArmourMultiplier" value="0.010" />
-        <Entry varId="RPOheavyArmourMultiplier" value="-0.015" />
+        <Entry varId="RPOlightArmourSpeedMultiplier" value="0.010" />
+        <Entry varId="RPOheavyArmourSpeedMultiplier" value="-0.015" />
         
         <Entry varId="RPOmodInitialized" value="1" />
       </Preset>
@@ -61,18 +62,19 @@
         <Var id="RPOparrySizeStaminaRequirementMultiplier" displayName="rpo_parry_size_stamina_requirement_multiplier" displayType="SLIDER;0;5;50" />
         <Var id="RPOparryStaminaRegenerationMultiplier" displayName="rpo_parry_stamina_regeneration_multiplier" displayType="SLIDER;0;5;50" />
         
-        <Var id="RPOcanParryAnything" displayName="rpo_can_parry_anything" displayType="TOGGLE" />
-        <Var id="RPOcanPerformActionsWithoutStamina" displayName="rpo_can_perform_actions_without_stamina" displayType="TOGGLE" />
-
         <Var id="RPOmissingStaminaSpeedLossMultiplier" displayName="rpo_missing_stamina_speed_loss_multiplier" displayType="SLIDER;0;2;200" />
+        <Var id="RPOadrenalineSpeedGain" displayName="rpo_adrenaline_speed_gain_multiplier" displayType="SLIDER;-2;2;400" />
         <Var id="RPOdodgeSpeedMultiplier" displayName="rpo_dodge_speed_multiplier" displayType="SLIDER;0;5;50" />
         <Var id="RPOrollSpeedMultiplier" displayName="rpo_roll_speed_multiplier" displayType="SLIDER;0;5;50" />
         <Var id="RPOlightAttackSpeedMultiplier" displayName="rpo_light_attack_speed_multiplier" displayType="SLIDER;0;5;50" />
         <Var id="RPOheavyAttackSpeedMultiplier" displayName="rpo_heavy_attack_speed_multiplier" displayType="SLIDER;0;5;50" />
 
-        <Var id="RPOlightArmourMultiplier" displayName="rpo_light_armour_multiplier" displayType="SLIDER;-2;2;400" />
-        <Var id="RPOheavyArmourMultiplier" displayName="rpo_heavy_armour_multiplier" displayType="SLIDER;-2;2;400" />
+        <Var id="RPOlightArmourSpeedMultiplier" displayName="rpo_light_armour_multiplier" displayType="SLIDER;-2;2;400" />
+        <Var id="RPOheavyArmourSpeedMultiplier" displayName="rpo_heavy_armour_multiplier" displayType="SLIDER;-2;2;400" />
         
+        <Var id="RPOcanParryAnything" displayName="rpo_can_parry_anything" displayType="TOGGLE" />
+        <Var id="RPOcanPerformActionsWithoutStamina" displayName="rpo_can_perform_actions_without_stamina" displayType="TOGGLE" />
+
         <Var id="RPOmodInitialized" displayName="rpo_mod_initialized" displayType="TOGGLE" />
     </VisibleVars>
     </Group>
