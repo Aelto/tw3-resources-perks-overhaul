@@ -63,14 +63,15 @@ function RPO_parryActor(parry_info: SParryInfo): bool {
 
   delay = 1;
   if (!had_stamina_to_fully_parry) {
-    delay *= 2;
+    // because parries always work no matter the stamina level. Parrying without
+    // the needed stamina inflicts a big penalty, the delay is multiplied by 5
+    delay *= 5;
   }
 
   thePlayer.DrainStamina(ESAT_FixedValue, stamina_cost * 100, delay * RPO_getStaminaRegenerationDelayMultiplier());
 
-  if (had_stamina_to_fully_parry) {
-    RPO_resetSpeedModifier();
-  }
+  RPO_resetSpeedModifier();
 
-  return had_stamina_to_fully_parry;
+  // can always parry no matter what
+  return true;
 }
