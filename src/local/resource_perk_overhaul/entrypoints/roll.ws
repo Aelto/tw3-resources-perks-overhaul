@@ -12,8 +12,7 @@ function RPO_rollEntryPoint(player: CR4Player): bool {
   stamina_cost = RPO_getRollStaminaCost();
 
   // Fleet footed:
-  // Dodges and rolls now consume adrenaline when available. Geralt now loses a
-  // small portion of current health when losing adrenaline.
+  // Dodges and rolls now consume adrenaline when available.
   if (RPO_getSkillLevel(S_Sword_s09) > 0
   &&  thePlayer.GetStat(BCS_Focus) > stamina_cost / 25) {
 
