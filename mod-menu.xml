@@ -35,6 +35,9 @@
         <Entry varId="RPOlightArmourSpeedMultiplier" value="0.010" />
         <Entry varId="RPOheavyArmourSpeedMultiplier" value="-0.015" />
         
+        <Entry varId="RPOdamageOutputMultiplier" value="1" />
+        <Entry varId="RPOdamageInputMultiplier" value="1" />
+        
         <Entry varId="RPOmodInitialized" value="1" />
       </Preset>
     </PresetsArray>
