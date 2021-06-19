@@ -245,3 +245,18 @@ function RPO_getHeavyArmourSpeedMultiplier(): float {
     .GetVarValue('RPOgeneral', 'RPOheavyArmourSpeedMultiplier')
   );
 }
+
+function RPO_getDamageOutputMultiplier(): float {
+  return StringToFloat(
+    theGame
+    .GetInGameConfigWrapper()
+    .GetVarValue('RPOgeneral', 'RPOdamageOutputMultiplier')
+  );
+}
+function RPO_getDamageInputMultiplier(): float {
+  return StringToFloat(
+    theGame
+    .GetInGameConfigWrapper()
+    .GetVarValue('RPOgeneral', 'RPOdamageInputMultiplier')
+  );
+}

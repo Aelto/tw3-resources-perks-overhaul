@@ -34,5 +34,7 @@
 2115494032|        |option_rpo_light_attack_speed_multiplier|<font color="#ffffff">           :</font> light attack modifier
 2115494033|        |option_rpo_light_armour_multiplier|<font color="#ffffff">           :</font> gain per piece of light armour (%)
 2115494034|        |option_rpo_heavy_armour_multiplier|<font color="#ffffff">           :</font> gain per piece of heavy armour (%)
-2115494035|        |option_rpo_mod_initialized|<font color="#ea4a5a">MOD INITIALIZED</font> (reset settings when OFF)
-2115494036|        |option_resources_perks_overhaul_initialized|<font color="#30a14e">Resources Perks overhaul</font> initialized
+2115494035|        |option_rpo_damage_output_multiplier|<font color="#6a737d">Damage:</font> dealt multiplier
+2115494036|        |option_rpo_damage_input_multiplier|<font color="#6a737d">              :</font> received multiplier
+2115494037|        |option_rpo_mod_initialized|<font color="#ea4a5a">MOD INITIALIZED</font> (reset settings when OFF)
+2115494038|        |option_resources_perks_overhaul_initialized|<font color="#30a14e">Resources Perks overhaul</font> initialized

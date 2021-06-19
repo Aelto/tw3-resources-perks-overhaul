@@ -27,6 +27,7 @@ function RPO_damageModifier(out action: W3DamageAction, playerAttacker: CR4Playe
   if (attacker != thePlayer && action.victim == thePlayer) {
     modifier = 1
             //  + RPO_adrenalineDamageInputModifier()
+             + RPO_getDamageInputMultiplier()
              + RPO_missingStaminaDamageInputModifier();
 
     // RPODEBUG("damage input, modifier: " + modifier);
@@ -105,16 +106,15 @@ function RPO_updateAttackDamageBasedOnCurrentStamina(playerAttacker: CR4Player, 
 // the mod reduces global attack damage by a flat % by default. This is to give
 // perks a purpose and because the player would become way too strong otherwise.
 function RPO_globalAttackDamageModifier(playerAttacker: CR4Player, attackAction: W3Action_Attack): float {
-  // if (playerAttacker && attackAction
-  // // we don't want to update the rend damage with the current stamina because
-  // // rend drains stamina and it would not deal any damage if we did.
-  // && thePlayer.GetCombatAction() != EBAT_SpecialAttack_Heavy
-  // // we only change the damage for heavy and light attacks, not signs.
-  // && playerAttacker.IsHeavyAttack(attackAction.GetAttackName())
-  // || playerAttacker.IsLightAttack(attackAction.GetAttackName())) {
-    
-  //   return 0.7;
-  // }
+  if (playerAttacker && attackAction
+  && (
+    // this is the rend attack
+    thePlayer.GetCombatAction() == EBAT_SpecialAttack_Heavy
+    // we only change the damage for heavy and light attacks, not signs.
+    || playerAttacker.IsHeavyAttack(attackAction.GetAttackName())
+    || playerAttacker.IsLightAttack(attackAction.GetAttackName()))) {
+    return RPO_getDamageOutputMultiplier();
+  }
 
   return 1;
 }
