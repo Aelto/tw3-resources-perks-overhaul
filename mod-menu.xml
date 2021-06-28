@@ -9,6 +9,7 @@
         <Entry varId="RPOrequirePerksEquipped" value="1" />
         <Entry varId="RPOstaminaRegenerationMultiplier" value="2" />
         <Entry varId="RPOstaminaRegenerationDelayMultiplier" value="0.3" />
+        <Entry varId="RPOstaminaRegenerationDelayPenaltyMultiplier" value="2" />
         <Entry varId="RPOmissingStaminaDamageLossMultiplier" value="0.1" />
         <Entry varId="RPOlightAttackStaminaCostMultiplier" value="0.8" />
         <Entry varId="RPOheavyAttackStaminaCostMultiplier" value="1.1" />
@@ -51,6 +52,7 @@
         <!-- <Var id="RPOstaminaMultipliersSeparator" displayName="rpo_stamina_multipliers_separator" displayType="GAMMA;0;0;0" /> -->
         <Var id="RPOstaminaRegenerationMultiplier" displayName="rpo_stamina_regeneration_multiplier" displayType="SLIDER;0;5;50" />
         <Var id="RPOstaminaRegenerationDelayMultiplier" displayName="rpo_stamina_regeneration_delay_multiplier" displayType="SLIDER;0;5;50" />
+        <Var id="RPOstaminaRegenerationDelayPenaltyMultiplier" displayName="rpo_stamina_regeneration_delay_penalty_multiplier" displayType="SLIDER;0;5;50" />
         <Var id="RPOmissingStaminaDamageLossMultiplier" displayName="rpo_missing_stamina_damage_loss_multiplier" displayType="SLIDER;0;5;50" />
         <Var id="RPOlightAttackStaminaCostMultiplier" displayName="rpo_light_attack_stamina_cost_multiplier" displayType="SLIDER;0;5;50" />
         <Var id="RPOheavyAttackStaminaCostMultiplier" displayName="rpo_heavy_attack_stamina_cost_multiplier" displayType="SLIDER;0;5;50" />

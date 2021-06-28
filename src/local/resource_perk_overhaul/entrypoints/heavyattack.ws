@@ -38,7 +38,7 @@ function RPO_heavyattackEntryPoint(player: CR4Player): bool {
   // no stamina available, the player can still attack but its stamina regen
   // is paused for 3 seconds
   else {
-    delay = 3;
+    delay *= RPO_getStaminaRegenerationDelayPenaltyMultiplier();
   }
 
   if (delay > 1 && !RPO_canPerformActionsWithoutStamina()) {

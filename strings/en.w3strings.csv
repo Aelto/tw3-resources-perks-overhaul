@@ -11,30 +11,31 @@
 2115494009|        |option_rpo_stamina_multipliers_separator|<font color="#ffd33d">Stamina multipliers</font>
 2115494010|        |option_rpo_stamina_regeneration_multiplier|<font color="#ffd33d">Stamina:</font> Regeneration multiplier
 2115494011|        |option_rpo_stamina_regeneration_delay_multiplier|<font color="#ffd33d">              :</font> Delay multiplier
-2115494012|        |option_rpo_missing_stamina_damage_loss_multiplier|<font color="#ffd33d">              :</font> Damage loss multiplier
-2115494013|        |option_rpo_light_attack_stamina_cost_multiplier|<font color="#ffd33d">              :</font> Light attack cost multiplier
-2115494014|        |option_rpo_heavy_attack_stamina_cost_multiplier|<font color="#ffd33d">              :</font> Heavy attack cost multiplier
-2115494015|        |option_rpo_dodge_stamina_cost_multiplier|<font color="#ffd33d">              :</font> Dodge cost multiplier
-2115494016|        |option_rpo_roll_stamina_cost_multiplier|<font color="#ffd33d">              :</font> Roll cost multiplier
-2115494017|        |option_rpo_aard_stamina_cost_multiplier|<font color="#ffd33d">              :</font> <font color="#dbedff">Aard</font> cost multiplier
-2115494018|        |option_rpo_igni_stamina_cost_multiplier|<font color="#ffd33d">              :</font> <font color="#fdaeb7">Igni</font> cost multiplier
-2115494019|        |option_rpo_quen_stamina_cost_multiplier|<font color="#ffd33d">              :</font> <font color="#fff5b1">Quen</font> cost multiplier
-2115494020|        |option_rpo_axii_stamina_cost_multiplier|<font color="#ffd33d">              :</font> <font color="#f6f8fa">Axii</font> cost multiplier
-2115494021|        |option_rpo_yrden_stamina_cost_multiplier|<font color="#ffd33d">              :</font> <font color="#f5f0ff">Yrden</font> cost multiplier
-2115494022|        |option_rpo_sign_stamina_requirement_multiplier|<font color="#ffd33d">              :</font> Sign requirement multiplier (% of the cost)
-2115494023|        |option_rpo_parry_size_stamina_requirement_multiplier|<font color="#ffd33d">              :</font> Parry multiplier (scales with enemy size & strength)
-2115494024|        |option_rpo_parry_stamina_regeneration_multiplier|<font color="#ffd33d">              :</font> Regeneration multiplier in parry (% of default renegeration)
-2115494025|        |option_rpo_can_parry_anything|Can parry heavy attacks
-2115494026|        |option_rpo_can_perform_actions_without_stamina|Can perform actions without stamina
-2115494027|        |option_rpo_missing_stamina_speed_loss_multiplier|<font color="#ffffff">Speed:</font> loss from missing stamina (1 means -15% at 0% stamina)
-2115494028|        |option_rpo_adrenaline_speed_gain_multiplier|<font color="#ffffff">           :</font> gain per adrenaline point (%)
-2115494029|        |option_rpo_dodge_speed_multiplier|<font color="#ffffff">           :</font> dodge modifier
-2115494030|        |option_rpo_roll_speed_multiplier|<font color="#ffffff">           :</font> roll modifier
-2115494031|        |option_rpo_heavy_attack_speed_multiplier|<font color="#ffffff">           :</font> heavy attack modifier
-2115494032|        |option_rpo_light_attack_speed_multiplier|<font color="#ffffff">           :</font> light attack modifier
-2115494033|        |option_rpo_light_armour_multiplier|<font color="#ffffff">           :</font> gain per piece of light armour (%)
-2115494034|        |option_rpo_heavy_armour_multiplier|<font color="#ffffff">           :</font> gain per piece of heavy armour (%)
-2115494035|        |option_rpo_damage_output_multiplier|<font color="#6a737d">Damage:</font> dealt multiplier
-2115494036|        |option_rpo_damage_input_multiplier|<font color="#6a737d">              :</font> received multiplier
-2115494037|        |option_rpo_mod_initialized|<font color="#ea4a5a">MOD INITIALIZED</font> (reset settings when OFF)
-2115494038|        |option_resources_perks_overhaul_initialized|<font color="#30a14e">Resources Perks overhaul</font> initialized
+2115494012|        |option_rpo_stamina_regeneration_delay_penalty_multiplier|<font color="#ffd33d">              :</font> Delay penalty multiplier
+2115494013|        |option_rpo_missing_stamina_damage_loss_multiplier|<font color="#ffd33d">              :</font> Damage loss multiplier
+2115494014|        |option_rpo_light_attack_stamina_cost_multiplier|<font color="#ffd33d">              :</font> Light attack cost multiplier
+2115494015|        |option_rpo_heavy_attack_stamina_cost_multiplier|<font color="#ffd33d">              :</font> Heavy attack cost multiplier
+2115494016|        |option_rpo_dodge_stamina_cost_multiplier|<font color="#ffd33d">              :</font> Dodge cost multiplier
+2115494017|        |option_rpo_roll_stamina_cost_multiplier|<font color="#ffd33d">              :</font> Roll cost multiplier
+2115494018|        |option_rpo_aard_stamina_cost_multiplier|<font color="#ffd33d">              :</font> <font color="#dbedff">Aard</font> cost multiplier
+2115494019|        |option_rpo_igni_stamina_cost_multiplier|<font color="#ffd33d">              :</font> <font color="#fdaeb7">Igni</font> cost multiplier
+2115494020|        |option_rpo_quen_stamina_cost_multiplier|<font color="#ffd33d">              :</font> <font color="#fff5b1">Quen</font> cost multiplier
+2115494021|        |option_rpo_axii_stamina_cost_multiplier|<font color="#ffd33d">              :</font> <font color="#f6f8fa">Axii</font> cost multiplier
+2115494022|        |option_rpo_yrden_stamina_cost_multiplier|<font color="#ffd33d">              :</font> <font color="#f5f0ff">Yrden</font> cost multiplier
+2115494023|        |option_rpo_sign_stamina_requirement_multiplier|<font color="#ffd33d">              :</font> Sign requirement multiplier (% of the cost)
+2115494024|        |option_rpo_parry_size_stamina_requirement_multiplier|<font color="#ffd33d">              :</font> Parry multiplier (scales with enemy size & strength)
+2115494025|        |option_rpo_parry_stamina_regeneration_multiplier|<font color="#ffd33d">              :</font> Regeneration multiplier in parry (% of default renegeration)
+2115494026|        |option_rpo_can_parry_anything|Can parry heavy attacks
+2115494027|        |option_rpo_can_perform_actions_without_stamina|Can perform actions without stamina
+2115494028|        |option_rpo_missing_stamina_speed_loss_multiplier|<font color="#ffffff">Speed:</font> loss from missing stamina (1 means -15% at 0% stamina)
+2115494029|        |option_rpo_adrenaline_speed_gain_multiplier|<font color="#ffffff">           :</font> gain per adrenaline point (%)
+2115494030|        |option_rpo_dodge_speed_multiplier|<font color="#ffffff">           :</font> dodge modifier
+2115494031|        |option_rpo_roll_speed_multiplier|<font color="#ffffff">           :</font> roll modifier
+2115494032|        |option_rpo_heavy_attack_speed_multiplier|<font color="#ffffff">           :</font> heavy attack modifier
+2115494033|        |option_rpo_light_attack_speed_multiplier|<font color="#ffffff">           :</font> light attack modifier
+2115494034|        |option_rpo_light_armour_multiplier|<font color="#ffffff">           :</font> gain per piece of light armour (%)
+2115494035|        |option_rpo_heavy_armour_multiplier|<font color="#ffffff">           :</font> gain per piece of heavy armour (%)
+2115494036|        |option_rpo_damage_output_multiplier|<font color="#6a737d">Damage:</font> dealt multiplier
+2115494037|        |option_rpo_damage_input_multiplier|<font color="#6a737d">              :</font> received multiplier
+2115494038|        |option_rpo_mod_initialized|<font color="#ea4a5a">MOD INITIALIZED</font> (reset settings when OFF)
+2115494039|        |option_resources_perks_overhaul_initialized|<font color="#30a14e">Resources Perks overhaul</font> initialized

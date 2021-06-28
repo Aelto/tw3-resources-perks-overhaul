@@ -30,10 +30,10 @@ function RPO_dodgeEntryPoint(player: CR4Player): bool {
     // no stamina available, the player can still dodge but its stamina regen
     // is paused for 2 seconds
     else {
-      delay = 2;
+      delay *= RPO_getStaminaRegenerationDelayPenaltyMultiplier();
     }
 
-    if (delay == 2 && !RPO_canPerformActionsWithoutStamina()) {
+    if (delay > 1 && !RPO_canPerformActionsWithoutStamina()) {
       return false;
     }
 

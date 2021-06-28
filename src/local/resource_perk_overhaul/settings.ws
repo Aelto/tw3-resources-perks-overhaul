@@ -44,6 +44,13 @@ function RPO_getStaminaRegenerationDelayMultiplier(): float {
     .GetVarValue('RPOgeneral', 'RPOstaminaRegenerationDelayMultiplier')
   );
 }
+function RPO_getStaminaRegenerationDelayPenaltyMultiplier(): float {
+  return StringToFloat(
+    theGame
+    .GetInGameConfigWrapper()
+    .GetVarValue('RPOgeneral', 'RPOstaminaRegenerationDelayPenaltyMultiplier')
+  );
+}
 function RPO_getMissingStaminaDamageLossMultiplier(): float {
   return StringToFloat(
     theGame
