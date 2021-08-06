@@ -19,12 +19,12 @@ function RPO_getSpeedModifierForStaminaPercent(percent: float): Float {
   // 0% stamina -> 100% of maximum reduction
   // And because we have the 1 - in front of it we have a value that starts at 0
   // when full stamina and 1 when stamina is empty.
-  multiplier = 1 - LogF(1 + x * 100 * 0.05) / Math.log(6);
+  multiplier = 1 - LogF(1 + percent * 100 * 0.05) / LogF(6);
 
   // the default value for the maximum speed reduction is 15%. It means that
   // with a slider value of 1, and the stamina at 0% you will get a 15%
   // reduction.
-  return Math.max(
+  return MaxF(
     1 - 0.15 * multiplier * RPO_getMissingStaminaSpeedLossMultiplier(),
     0
   );
