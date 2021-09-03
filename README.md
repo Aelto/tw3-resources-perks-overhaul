@@ -12,6 +12,14 @@ No more "oh no my stamina is empty, guess i'll take a break in the middle of the
 
 And of course, you know me, the mod comes with an extensive mod menu to tweak everything. This mod can be used as a replacement for most stamina combat mods you know and offers a total control over everything about the actions and their cost.
 
+# Selling points
+RPO's strong points are the following:
+ - dynamic stamina regeneration, it follows a logarithmic function unlike other mods where it is linear. The higher your stamina is, the higher its regeneration as well.
+ - permissive stamina system, you can still perform actions even at 0 stamina
+ - dynamic stats based on stamina, as stamina goes down you lose other stats like attack power and overall speed
+
+Thanks to its perks, adrenaline becomes an interactive resource as well, you can use it to save stamina for example, or even regenerate life. Creating a more permissive but more dynamic experience while still forcing you to play smart
+
 # Optional perks
 Note that all perks are not made to give advantages, some of them may even seem like counter productive if not paired with the right build. Perks were made to be combined so you can create varied build around different Witcher school sets. A loss of adrenaline once combined with the right perk may also heal you for example, but you will also lose the damage gain from the adrenaline. Everything comes at a cost, the perks were made to encourage varied and interesting gameplay.
 
