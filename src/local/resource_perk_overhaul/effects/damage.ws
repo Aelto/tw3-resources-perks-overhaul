@@ -27,7 +27,7 @@ function RPO_damageModifier(out action: W3DamageAction, playerAttacker: CR4Playe
   if (attacker != thePlayer && action.victim == thePlayer) {
     modifier = 1
             //  + RPO_adrenalineDamageInputModifier()
-             + RPO_getDamageInputMultiplier()
+             * RPO_getDamageInputMultiplier()
              + RPO_missingStaminaDamageInputModifier();
 
     // RPODEBUG("damage input, modifier: " + modifier);
