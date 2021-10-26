@@ -16,7 +16,12 @@ function RPO_heavyattackEntryPoint(player: CR4Player): bool {
   heavy_attack_consume_adrenaline_level = RPO_getSkillLevel(S_Sword_s04);
 
   if (heavy_attack_consume_adrenaline_level > 0) {
-    adrenaline_cost = heavy_attack_consume_adrenaline_level * 0.33;
+    adrenaline_cost = heavy_attack_consume_adrenaline_level
+                    * 0.33
+                    // then we reduce the cost by once more per level,
+                    // otherwise it becomes way too hard to stack adrenaline
+                    //with these perks
+                    / heavy_attack_consume_adrenaline_level;
 
     // we also remove the consumed adrenaline from the stamina cost
     stamina_cost *= 1 - adrenaline_cost;
