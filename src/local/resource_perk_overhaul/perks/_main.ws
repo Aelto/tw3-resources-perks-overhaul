@@ -122,6 +122,13 @@ function RPO_staminaCostManager(action : EStaminaActionType, isPerSec : bool, ou
     cost.valueAdditive *= modifier;
     cost.valueMultiplicative *= modifier;
     cost.valueBase *= modifier;
+
+    // we re-use the modifier variable here to the delay multiplier
+    modifier = RPO_getSignStaminaRegenerationDelayMultiplier();
+
+    delay.valueAdditive *= modifier;
+    delay.valueMultiplicative *= modifier;
+    delay.valueBase *= modifier;
   }
 }
 
