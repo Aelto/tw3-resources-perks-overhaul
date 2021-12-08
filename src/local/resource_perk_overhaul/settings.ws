@@ -132,35 +132,9 @@ function RPO_getSignStaminaCostMultiplier(sign: ESignType): float {
     );
   }
 
-  // when the passed skill is not recognised it returns a mean value of all four
-  // sign costs
-  return (
-    StringToFloat(
-      theGame
-      .GetInGameConfigWrapper()
-      .GetVarValue('RPOgeneral', 'RPOaardStaminaCostMultiplier')
-    ) +
-    StringToFloat(
-      theGame
-      .GetInGameConfigWrapper()
-      .GetVarValue('RPOgeneral', 'RPOigniStaminaCostMultiplier')
-    ) +
-    StringToFloat(
-      theGame
-      .GetInGameConfigWrapper()
-      .GetVarValue('RPOgeneral', 'RPOyrdenStaminaCostMultiplier')
-    ) +
-    StringToFloat(
-      theGame
-      .GetInGameConfigWrapper()
-      .GetVarValue('RPOgeneral', 'RPOquenStaminaCostMultiplier')
-    ) +
-    StringToFloat(
-      theGame
-      .GetInGameConfigWrapper()
-      .GetVarValue('RPOgeneral', 'RPOaxiiStaminaCostMultiplier')
-    )
-  ) / 5;
+  // when the passed skill is not recognised it returns 1 as to not modify its
+  // original cost.
+  return 1;
 }
 function RPO_getSignStaminaRequirementMultiplier(): float {
   return StringToFloat(
