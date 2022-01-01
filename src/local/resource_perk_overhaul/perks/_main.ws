@@ -117,18 +117,40 @@ function RPO_staminaCostManager(action : EStaminaActionType, isPerSec : bool, ou
       return;
     }
 
-    modifier = RPO_getSignCostModifier(RPO_abilityToSign(abilityName));
+    if (abilityName == 'sword_s1') {
+      modifier = RPO_getSkillStaminaCostModifier(S_Sword_1);
+    }
+    else {
+      modifier = RPO_getSignCostModifier(RPO_abilityToSign(abilityName));
+    }
 
-    cost.valueAdditive *= modifier;
-    cost.valueMultiplicative *= modifier;
-    cost.valueBase *= modifier;
+
+    if (!isPerSec) {
+      cost.valueAdditive *= modifier;
+      cost.valueMultiplicative *= modifier;
+      cost.valueBase *= modifier;
+    }
 
     // we re-use the modifier variable here to the delay multiplier
-    modifier = RPO_getSignStaminaRegenerationDelayMultiplier();
+    if (abilityName == 'sword_s1') {
+      modifier = RPO_getStaminaRegenerationDelayMultiplier();
+    }
+    else {
+      modifier = RPO_getSignStaminaRegenerationDelayMultiplier();
+    }
 
-    delay.valueAdditive *= modifier;
-    delay.valueMultiplicative *= modifier;
-    delay.valueBase *= modifier;
+    // when it is per second, we set the value using a = instead of *=
+    if (isPerSec) {
+      delay.valueAdditive = modifier;
+      // delay.valueMultiplicative = modifier;
+      // delay.valueBase = modifier;
+    }
+    else {
+      delay.valueAdditive *= modifier;
+      delay.valueMultiplicative *= modifier;
+      delay.valueBase *= modifier;
+    }
+    
   }
 }
 
