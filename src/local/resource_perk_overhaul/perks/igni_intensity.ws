@@ -7,7 +7,7 @@ function RPO_overStaminaRestoresAdrenaline(stamina_amount: float, current: float
     thePlayer.GainStat(
       BCS_Focus,
       RPO_getSkillLevel(S_Magic_s07) // Igni Intensity
-      * 0.2
+      * 0.15
     );
   }
 }
