@@ -27,19 +27,19 @@ As everything is done through scripts, the new effects added to the perks work w
 
 
 ## DPS tree:
-- [x] **Fleet footed** also adds: dodges now consume adrenaline instead of stamina, missing stamina increases damage received. 0.5% increased damage per % missing stamina to 0.016% at Fleet Footed level 3.
+- [x] **Fleet footed** also adds: Dodging and rolling default to consuming adrenaline instead of stamina, freeing up your stamina bar for other actions. If the adrenaline requirements are not met, it falls back to stamina. In addition, you receive more damage from all sources the lower your stamina bar is.
 - [x] **Strength training** and Muscle Memory (light & heavy attack damage) add: adrenaline now increases the stamina cost of attacks. Heavy attacks consume adrenaline but their damage continue to scale on your current stamina levels. 15% increased cost per adrenaline point divided to 5% per adrenaline point at Strength Training level 3
-- [x] **Undying** adds: Gaining adrenaline heals based on the stamina you currently have. Higher stamina means more healing. Adrenaline increases the stamina cost of attacks. 5% of maximum health per adrenaline point gained per level on Undying (maximum level 3).
+- [x] **Undying** adds: Actions that generate adrenaline also heal you for that much multiplied by the amount of stamina you have.
 
 ## Sign tree:
 - [x] **Igni intensity** adds: when reaching 100% stamina, gain a burst of adrenaline
-- [x] **Yrden intensity** perk (3rd row): When hit, if it's the first time you've been in the previous 5 seconds window, gain stamina 0.2 adrenaline point per perk level (maximum 3) and decreased cooldown by 1 second per perk level (maximum 3).
-- [x] **Active Shield** (quen alt) adds: While Quen is active resources regeneration and consumption are removed (except for signs) and heavy attacks deal more damage while light attacks deal less damage. -50% damage to light attacks and +20% to 50% at Active Shield level 3. Attacking while Quen is up reduces the shield's health by 40% to 12% at Active Shield level 3.
+- [x] **Yrden intensity** perk (3rd row): You gain a burst of stamina upon receiving damage. Can only trigger once every 5 seconds.
+- [x] **Active Shield** (quen alt) adds: While Quen is active on the player, resource regeneration and consumption are halted for physical attacks (not for signs). Heavy attacks deal more damage, while light attacks deal less damage. Attacking drains the shield's health.
 
 ## Alchemy tree:
 - [x] **Refreshment**: When at maximum adrenaline, consuming stamina restores health. The lower the stamina the higher the heal. Also increases all stamina cost by 50%
-- [x] **Fixative**: Fast attacks now use adrenaline instead of stamina and their damage now scales on your adrenaline levels. _Note that adrenaline ranges from 0 to 3, so at full adrenaline fast attacks deal 300% more damage than they normally do at full stamina.
-- [x] **Endure pain**: As life goes down, resources consumption for aggressive actions is 45% more efficient but 45% less efficient for defensive actions. (15% per perk level)
+- [x] **Fixative**: Fast attacks now consume adrenaline instead of stamina. Fast attack damage now scales with each adrenaline charge. Zero adrenaline produces no damage; full adrenaline produces 300% increased damage.
+- [x] **Endure pain**:  As health depletes, resource consumption for aggressive actions becomes less costly, while resource consumption for defensive actions becomes more costly.
 - [x] **Fast metabolism** (toxicity drops faster): toxicity improves overall resource consumption by 0.01% per toxicity point per skill level. 90% at 300 toxicity with level 3 skill (which is the maximum for RPO)
 
 # Installing
