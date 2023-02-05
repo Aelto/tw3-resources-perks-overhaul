@@ -729,7 +729,7 @@ state BaseCast in W3SignEntity
 
 			
 			
-			if(l_player.HasBuff(EET_Mutagen22) && l_player.IsInCombat() && l_player.IsThreatened() && && RPO_shouldGetAncientLeshenDecoctionBuff()) // RPO
+			if(l_player.HasBuff(EET_Mutagen22) && l_player.IsInCombat() && l_player.IsThreatened() && RPO_shouldGetAncientLeshenDecoctionBuff()) // RPO
 			{
 				abilityName = l_player.GetBuff(EET_Mutagen22).GetAbilityName();
 				abilityCount = l_player.GetAbilityCount(abilityName);
