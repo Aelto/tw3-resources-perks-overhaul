@@ -452,7 +452,7 @@ import abstract class W3AbilityManager extends IScriptable
 			owner.StartStaminaRegen();
 		}
 
-		
+
 		RPO_consumingStaminaRestoresHealth(this, cost); // RPO
 		
 		

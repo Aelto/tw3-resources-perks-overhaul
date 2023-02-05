@@ -17,6 +17,12 @@ statemachine abstract class W3SignEntity extends CGameplayEntity
 	protected		var cachedCost			: float;
 	protected 	var usedFocus			: bool;
 	
+	
+	private var specialIgniCast : bool; default specialIgniCast = false;
+	protected function SetIsSpecialIgniCast() {specialIgniCast = true;}
+	protected function GetIsSpecialIgniCast() : bool {return specialIgniCast;}
+	
+	
 	public function GetSignType() : ESignType
 	{
 		return ST_None;
@@ -188,16 +194,13 @@ statemachine abstract class W3SignEntity extends CGameplayEntity
 	
 	event OnThrowing()
 	{
+		
 	}
 	
 	
 	event OnEnded(optional isEnd : bool)
 	{
 		var witcher : W3PlayerWitcher;
-		var abilityName : name;
-		var abilityCount, maxStack : float;
-		var min, max : SAbilityAttributeValue;
-		var addAbility : bool;
 		var mutagen17 : W3Mutagen17_Effect;
 
 		var camHeading : float;
@@ -226,36 +229,6 @@ statemachine abstract class W3SignEntity extends CGameplayEntity
 				mutagen17.ClearBoost();
 			 }
 		}		
-		
-		if(witcher && witcher.HasBuff(EET_Mutagen22) && witcher.IsInCombat() && witcher.IsThreatened() && RPO_shouldGetAncientLeshenDecoctionBuff()) // RPO
-		{
-			abilityName = witcher.GetBuff(EET_Mutagen22).GetAbilityName();
-			abilityCount = witcher.GetAbilityCount(abilityName);
-			
-			if(abilityCount == 0)
-			{
-				addAbility = true;
-			}
-			else
-			{
-				theGame.GetDefinitionsManager().GetAbilityAttributeValue(abilityName, 'mutagen22_max_stack', min, max);
-				maxStack = CalculateAttributeValue(GetAttributeRandomizedValue(min, max));
-				
-				if(maxStack >= 0)
-				{
-					addAbility = (abilityCount < maxStack);
-				}
-				else
-				{
-					addAbility = true;
-				}
-			}
-			
-			if(addAbility)
-			{
-				witcher.AddAbility(abilityName, true);
-			}
-		}
 		
 		CleanUp();
 	}
@@ -427,6 +400,11 @@ statemachine abstract class W3SignEntity extends CGameplayEntity
 			LogSigns( "W3SignEntity.FillActionDamageFromSkill: action does not exist!" );
 			return;
 		}
+		
+		
+		if(GetIsSpecialIgniCast())
+			skillEnum = S_Magic_2;
+		
 				
 		dm = theGame.GetDefinitionsManager();
 		dm.GetAbilityAttributes( owner.GetSkillAbilityName( skillEnum ), attrs );
@@ -525,7 +503,7 @@ statemachine abstract class W3SignEntity extends CGameplayEntity
 		var l_player			: W3PlayerWitcher;
 		var l_cost, l_stamina	: float;
 		var l_gryphonBuff		: W3Effect_GryphonSetBonus;
-		
+
 		l_player = owner.GetPlayer();
 		
 		l_gryphonBuff = (W3Effect_GryphonSetBonus)l_player.GetBuff( EET_GryphonSetBonus );
@@ -643,16 +621,97 @@ state BaseCast in W3SignEntity
 	}
 	
 	event OnLeaveState( nextStateName : name )
-	{
+	{	
+		
+		if(nextStateName == 'AardConeCast' && caster.GetActor() == thePlayer)
+			return false;			
+		else if( caster.GetActor() == thePlayer && (W3IgniEntity)parent && nextStateName == 'Finished' && GetWitcherPlayer().IsCurrentSignChanneled() && !((W3IgniEntity)parent).GetBurnEffectPlayed())
+		{
+			parent.SetIsSpecialIgniCast();
+			parent.fireMode = 0;
+			ProcessIgniThrow();
+			theGame.VibrateControllerLight();			
+			thePlayer.AddTimer('NGE_DrainIgniStamina',0.1f,false);
+		}
+		
+	
 		caster.GetActor().SetBehaviorVariable( 'IsCastingSign', 0 );
 		caster.SetCurrentlyCastSign( ST_None, NULL );
 		LogChannel( 'ST_None', "ST_None" );
 	}
 	
+	
+	private function ProcessIgniThrow()
+	{
+		var projectile	: W3SignProjectile;
+		var spawnPos, heading: Vector;
+		var spawnRot : EulerAngles;		
+		var attackRange : CAIAttackRange;
+		var distance : float;
+		var castDir	: Vector;
+		var castDirEuler : EulerAngles;
+		var casterActor : CActor;		
+		var dist, aspectDist : float;
+		var angle : float;
+		var temp : CEntityTemplate; 
+
+		
+		spawnPos = ((W3IgniEntity)parent).GetWorldPosition();
+		spawnRot = ((W3IgniEntity)parent).GetWorldRotation();		
+		heading = ((W3IgniEntity)parent).owner.GetActor().GetHeadingVector();
+		casterActor = caster.GetActor();
+
+		temp = (CEntityTemplate)LoadResource("gameplay\templates\signs\pc_igni_proj_cone.w2ent", true);
+		projectile = (W3SignProjectile)theGame.CreateEntity( temp, spawnPos - heading * 0.7f, spawnRot );
+		projectile.ExtInit( caster, S_Magic_2, parent );
+		
+		parent.PlayEffect( 'cone' );	
+		
+		if(thePlayer.CanUseSkill(S_Magic_s07))
+			parent.PlayEffect('cone_power');
+		
+		if(thePlayer.CanUseSkill(S_Magic_s08))
+			parent.PlayEffect('cone_melt');			
+		
+		if(thePlayer.CanUseSkill(S_Magic_s09))
+			parent.PlayEffect('cone_superpower');		
+		
+		distance = 5;
+		if ( caster.HasCustomAttackRange() )
+			attackRange = theGame.GetAttackRangeForEntity( parent, caster.GetCustomAttackRange() );
+		else if(parent.fireMode == 2)
+			attackRange = theGame.GetAttackRangeForEntity( parent, 'cylinder' );
+		else
+			attackRange = theGame.GetAttackRangeForEntity( parent, 'cone' );
+		
+		projectile.SetAttackRange( attackRange );
+		projectile.ShootCakeProjectileAtPosition( 60, 3.5f, 0.0f, 30.0f, spawnPos + heading * distance, distance, ((W3IgniEntity)parent).projectileCollision );		
+		
+		
+		aspectDist 		= distance;
+		castDir 		= MatrixGetAxisX( casterActor.GetBoneWorldMatrixByIndex( ((W3IgniEntity)parent).boneIndex ) );
+		castDirEuler 	= VecToRotation( castDir );
+		dist = aspectDist * ( 1.f - caster.GetHandAimPitch() * 0.75f );
+		angle = 45.0 + ( caster.GetHandAimPitch() * 45.f );
+		Boids_CastFireInCone( casterActor.GetWorldPosition(), castDirEuler.Yaw, angle, dist );	
+		
+		casterActor.OnSignCastPerformed(ST_Igni, false);
+		
+		parent.StopEffectIfActive('burn');
+		parent.StopEffectIfActive('burn_upgrade');
+	}
+	
+	
 	event OnThrowing()
 	{		
 		var l_player : W3PlayerWitcher;
 		var l_gryphonBuff : W3Effect_GryphonSetBonus;
+		
+		
+		var abilityName : name;
+		var abilityCount, maxStack : float;
+		var min, max : SAbilityAttributeValue;
+		var addAbility : bool;
 		
 		l_player = caster.GetPlayer();
 		
@@ -667,8 +726,41 @@ state BaseCast in W3SignEntity
 			{
 				l_gryphonBuff.SetWhichSignForFree( parent );
 			}
+
 			
+			
+			if(l_player.HasBuff(EET_Mutagen22) && l_player.IsInCombat() && l_player.IsThreatened() && && RPO_shouldGetAncientLeshenDecoctionBuff()) // RPO
+			{
+				abilityName = l_player.GetBuff(EET_Mutagen22).GetAbilityName();
+				abilityCount = l_player.GetAbilityCount(abilityName);
+				
+				if(abilityCount == 0)
+				{
+					addAbility = true;
+				}
+				else
+				{
+					theGame.GetDefinitionsManager().GetAbilityAttributeValue(abilityName, 'mutagen22_max_stack', min, max);
+					maxStack = CalculateAttributeValue(GetAttributeRandomizedValue(min, max));
+					
+					if(maxStack >= 0)
+					{
+						addAbility = (abilityCount < maxStack);
+					}
+					else
+					{
+						addAbility = true;
+					}
+				}
+
+				if(addAbility)
+				{
+					l_player.AddAbility(abilityName, true);
+				}
+				
+			}
 		}
+
 		return true;
 	}
 	
@@ -887,7 +979,18 @@ state Channeling in W3SignEntity extends BaseCast
 	{
 		var currentInputContext : name;
 		
-		if ( theInput.GetActionValue( 'CastSignHold' ) > 0.f )
+		
+		var pcInputHeld : bool;
+		if(	thePlayer.GetInputHandler().GetIsAltSignCasting())
+		{
+			if(theInput.IsActionPressed('SelectAard') || theInput.IsActionPressed('SelectIgni') || theInput.IsActionPressed('SelectYrden') || theInput.IsActionPressed('SelectQuen') || theInput.IsActionPressed('SelectAxii'))
+			{
+				pcInputHeld = true;
+			}
+		}
+		
+		
+		if ( theInput.GetActionValue( 'CastSignHold' ) > 0.f || pcInputHeld )  
 		{
 			return false;
 		}
