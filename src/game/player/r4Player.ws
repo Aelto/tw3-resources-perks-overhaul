@@ -1748,9 +1748,6 @@ statemachine abstract import class CR4Player extends CPlayer
 		}
 		// RPO - END
 		
-		if ( !parryInfo.canBeParried || parryInfo.attacker.HasAbility( 'CannotBeCountered' ) )
-			return false;
-		
 		fistFightCheck = FistFightCheck( parryInfo.target, parryInfo.attacker, fistFightCounter );
 		
 		if( ParryCounterCheck() && parryInfo.targetToAttackerAngleAbs < theGame.params.PARRY_HALF_ANGLE && fistFightCheck )
